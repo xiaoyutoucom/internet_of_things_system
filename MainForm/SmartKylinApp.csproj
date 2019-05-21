@@ -1,0 +1,980 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props')" />
+  <Import Project="..\packages\CefSharp.Common.67.0.0\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.67.0.0\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\cef.redist.x86.3.3396.1786\build\cef.redist.x86.props" Condition="Exists('..\packages\cef.redist.x86.3.3396.1786\build\cef.redist.x86.props')" />
+  <Import Project="..\packages\cef.redist.x64.3.3396.1786\build\cef.redist.x64.props" Condition="Exists('..\packages\cef.redist.x64.3.3396.1786\build\cef.redist.x64.props')" />
+  <PropertyGroup>
+    <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B2D45C8F-282F-44B5-A622-96E5F4B9BC1C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartKylinApp</RootNamespace>
+    <AssemblyName>SmartKylinApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Costura, Version=3.3.2.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.3.3.2\lib\net40\Costura.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v16.2" />
+    <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v16.2" />
+    <Reference Include="DevExpress.Images.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Map.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Mvvm.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.2" />
+    <Reference Include="DevExpress.Sparkline.v16.2.Core" />
+    <Reference Include="DevExpress.Utils.v16.2.UI, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v16.2.UI, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v16.2.Wizard, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v16.2" />
+    <Reference Include="DevExpress.XtraBars.v16.2" />
+    <Reference Include="DevExpress.XtraGauges.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v16.2.Win, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v16.2" />
+    <Reference Include="DevExpress.XtraLayout.v16.2" />
+    <Reference Include="DevExpress.XtraMap.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.2" />
+    <Reference Include="DevExpress.Printing.v16.2.Core" />
+    <Reference Include="DevExpress.XtraReports.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v16.2.Extensions, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.4\lib\net461\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Json.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.2.1.1\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.2.1.1\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.7.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.7.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.7.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Legacy, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\mongocsharpdriver.2.7.0\lib\net45\MongoDB.Driver.Legacy.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=4.0.2.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.0.2\lib\net451\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.4.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.4.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.4.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.4.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Polly, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Polly.4.3.0\lib\net45\Polly.dll</HintPath>
+    </Reference>
+    <Reference Include="Repository.Mongo, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Repository.Mongo.1.0.4\lib\net46\Repository.Mongo.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.9.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.9\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Robin.Core">
+      <HintPath>..\packages\Robin.Core.3.8.2\lib\netstandard2.0\Robin.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Robin.NHibernate">
+      <HintPath>..\packages\Robin.NHibernate.3.8.2\lib\net461\Robin.NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=4.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.4.5.4\lib\net45\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.4.5.4\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis, Version=4.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Redis.4.5.4\lib\net45\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.5.4\lib\net45\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.6\lib\net46\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.0\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ConfigHelp.cs" />
+    <Compile Include="Common\ExcelHandler.cs" />
+    <Compile Include="Common\GlobalHandler.cs" />
+    <Compile Include="Common\ShowButton.cs" />
+    <Compile Include="Common\SoftKeyPwd.cs" />
+    <Compile Include="Common\TransformTool.cs" />
+    <Compile Include="Common\DataListModel.cs" />
+    <Compile Include="Common\TreeListModel.cs" />
+    <Compile Include="Common\Verification.cs" />
+    <Compile Include="Config.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config.Designer.cs">
+      <DependentUpon>Config.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm1.Designer.cs">
+      <DependentUpon>MainForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module\BootstrapMoudle.cs" />
+    <Compile Include="Mongodb\IMongoDBContext.cs" />
+    <Compile Include="Mongodb\MongoDBContext.cs" />
+    <Compile Include="Mongodb\MongoDBDataProvider.cs" />
+    <Compile Include="Mongodb\MongoDBDataProviderManager.cs" />
+    <Compile Include="Mongodb\MongoDBRepository.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Progressing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Progressing.Designer.cs">
+      <DependentUpon>Progressing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashScreen1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen1.Designer.cs">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseConfig\agreement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BaseConfig\agreement.Designer.cs">
+      <DependentUpon>agreement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseConfig\BaseConfigProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BaseConfig\BaseConfigProgress.Designer.cs">
+      <DependentUpon>BaseConfigProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseConfig\deviceimport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BaseConfig\deviceimport.Designer.cs">
+      <DependentUpon>deviceimport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseConfig\deviceinfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BaseConfig\deviceinfo.Designer.cs">
+      <DependentUpon>deviceinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseConfig\sensorimport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BaseConfig\sensorimport.Designer.cs">
+      <DependentUpon>sensorimport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseConfig\sensormanager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BaseConfig\sensormanager.Designer.cs">
+      <DependentUpon>sensormanager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseConfig\sensortemdownload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BaseConfig\sensortemdownload.Designer.cs">
+      <DependentUpon>sensortemdownload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseConfig\sensorilinkmodbus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BaseConfig\sensorilinkmodbus.Designer.cs">
+      <DependentUpon>sensorilinkmodbus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cache\CacheManger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cache\CacheManger.Designer.cs">
+      <DependentUpon>CacheManger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cache\CacheWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cache\CacheWait.Designer.cs">
+      <DependentUpon>CacheWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cache\QueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cache\QueryForm.Designer.cs">
+      <DependentUpon>QueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ComprehensiveDocument\configTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ComprehensiveDocument\configTable.Designer.cs">
+      <DependentUpon>configTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ComprehensiveDocument\configTableViewModel.cs" />
+    <Compile Include="View\ComprehensiveDocument\mapControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ComprehensiveDocument\mapControl.Designer.cs">
+      <DependentUpon>mapControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ComprehensiveDocument\WaitForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ComprehensiveDocument\WaitForm1.Designer.cs">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Confighelp\AboutSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Confighelp\AboutSystem.Designer.cs">
+      <DependentUpon>AboutSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Confighelp\Confighelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Confighelp\Confighelp.Designer.cs">
+      <DependentUpon>Confighelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ComprehensiveDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ComprehensiveDisplay.Designer.cs">
+      <DependentUpon>ComprehensiveDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LedConfig\LedLinkHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LedConfig\LedLinkHelp.Designer.cs">
+      <DependentUpon>LedLinkHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LedConfig\LedLinkMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LedConfig\LedLinkMonitor.Designer.cs">
+      <DependentUpon>LedLinkMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LedConfig\FontLibrary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LedConfig\FontLibrary.Designer.cs">
+      <DependentUpon>FontLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LedConfig\LedManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LedConfig\LedManager.Designer.cs">
+      <DependentUpon>LedManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MsgConfig\ContactAddManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MsgConfig\ContactAddManager.Designer.cs">
+      <DependentUpon>ContactAddManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MsgConfig\ContactLinkHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MsgConfig\ContactLinkHelp.Designer.cs">
+      <DependentUpon>ContactLinkHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MsgConfig\ContactLinkMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MsgConfig\ContactLinkMonitor.Designer.cs">
+      <DependentUpon>ContactLinkMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MsgConfig\ContactManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MsgConfig\ContactManager.Designer.cs">
+      <DependentUpon>ContactManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MsgConfig\MonitorHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MsgConfig\MonitorHelp.Designer.cs">
+      <DependentUpon>MonitorHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MsgConfig\TemplateManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MsgConfig\TemplateManager.Designer.cs">
+      <DependentUpon>TemplateManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Query\AlertQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Query\AlertQuery.Designer.cs">
+      <DependentUpon>AlertQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Query\RuntimeQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Query\RuntimeQuery.Designer.cs">
+      <DependentUpon>RuntimeQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Query\HistoryQuery.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Query\HistoryQuery.Designer.cs">
+      <DependentUpon>HistoryQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SMSConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SMSConfig.Designer.cs">
+      <DependentUpon>SMSConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SMSConfigs\SelectPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SMSConfigs\SelectPerson.Designer.cs">
+      <DependentUpon>SelectPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SMSConfigs\SmsRecordSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SMSConfigs\SmsRecordSearch.Designer.cs">
+      <DependentUpon>SmsRecordSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SMSConfigs\SmsSendCtr.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SMSConfigs\SmsSendCtr.Designer.cs">
+      <DependentUpon>SmsSendCtr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SMSConfigs\TemplateConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\SMSConfigs\TemplateConfig.Designer.cs">
+      <DependentUpon>TemplateConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfig.Designer.cs">
+      <DependentUpon>UnifiedConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\Configdownload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\Configdownload.Designer.cs">
+      <DependentUpon>Configdownload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\Configimport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\Configimport.Designer.cs">
+      <DependentUpon>Configimport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\ConfigManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\ConfigManager.Designer.cs">
+      <DependentUpon>ConfigManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\ConfigEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\ConfigEdit.Designer.cs">
+      <DependentUpon>ConfigEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\RainWaterForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\RainWaterForm.Designer.cs">
+      <DependentUpon>RainWaterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\WaterLink.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\WaterLink.Designer.cs">
+      <DependentUpon>WaterLink.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\Monitordownload.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\Monitordownload.Designer.cs">
+      <DependentUpon>Monitordownload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\Monitorimport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\Monitorimport.Designer.cs">
+      <DependentUpon>Monitorimport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\MonitorManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\MonitorManager.Designer.cs">
+      <DependentUpon>MonitorManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\MstypeManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\MstypeManager.Designer.cs">
+      <DependentUpon>MstypeManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\SensoridManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\SensoridManager.Designer.cs">
+      <DependentUpon>SensoridManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\TaginfoManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\TaginfoManager.Designer.cs">
+      <DependentUpon>TaginfoManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\RainLinkWaterHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\RainLinkWaterHelp.Designer.cs">
+      <DependentUpon>RainLinkWaterHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\WaterLinkHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UnifiedConfigs\WaterLinkHelp.Designer.cs">
+      <DependentUpon>WaterLinkHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\VideoConfig\VidieoLinkHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\VideoConfig\VidieoLinkHelp.Designer.cs">
+      <DependentUpon>VidieoLinkHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\VideoConfig\VidieoLinkMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\VideoConfig\VidieoLinkMonitor.Designer.cs">
+      <DependentUpon>VidieoLinkMonitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\VideoConfig\VideoAddManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\VideoConfig\VideoAddManager.Designer.cs">
+      <DependentUpon>VideoAddManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\VideoConfig\VideoManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\VideoConfig\VideoManager.Designer.cs">
+      <DependentUpon>VideoManager.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Config.resx">
+      <DependentUpon>Config.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm1.resx">
+      <DependentUpon>MainForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Progressing.resx">
+      <DependentUpon>Progressing.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseConfig\agreement.resx">
+      <DependentUpon>agreement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseConfig\BaseConfigProgress.resx">
+      <DependentUpon>BaseConfigProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseConfig\deviceimport.resx">
+      <DependentUpon>deviceimport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseConfig\deviceinfo.resx">
+      <DependentUpon>deviceinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseConfig\sensorimport.resx">
+      <DependentUpon>sensorimport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseConfig\sensormanager.resx">
+      <DependentUpon>sensormanager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseConfig\sensortemdownload.resx">
+      <DependentUpon>sensortemdownload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseConfig\sensorilinkmodbus.resx">
+      <DependentUpon>sensorilinkmodbus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cache\CacheManger.resx">
+      <DependentUpon>CacheManger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cache\CacheWait.resx">
+      <DependentUpon>CacheWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cache\QueryForm.resx">
+      <DependentUpon>QueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ComprehensiveDocument\configTable.resx">
+      <DependentUpon>configTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ComprehensiveDocument\mapControl.resx">
+      <DependentUpon>mapControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ComprehensiveDocument\WaitForm1.resx">
+      <DependentUpon>WaitForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Confighelp\AboutSystem.resx">
+      <DependentUpon>AboutSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Confighelp\Confighelp.resx">
+      <DependentUpon>Confighelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ComprehensiveDisplay.resx">
+      <DependentUpon>ComprehensiveDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LedConfig\LedLinkHelp.resx">
+      <DependentUpon>LedLinkHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LedConfig\LedLinkMonitor.resx">
+      <DependentUpon>LedLinkMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LedConfig\FontLibrary.resx">
+      <DependentUpon>FontLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LedConfig\LedManager.resx">
+      <DependentUpon>LedManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MsgConfig\ContactAddManager.resx">
+      <DependentUpon>ContactAddManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MsgConfig\ContactLinkHelp.resx">
+      <DependentUpon>ContactLinkHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MsgConfig\ContactLinkMonitor.resx">
+      <DependentUpon>ContactLinkMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MsgConfig\ContactManager.resx">
+      <DependentUpon>ContactManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MsgConfig\MonitorHelp.resx">
+      <DependentUpon>MonitorHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MsgConfig\TemplateManager.resx">
+      <DependentUpon>TemplateManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Query\AlertQuery.resx">
+      <DependentUpon>AlertQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Query\RuntimeQuery.resx">
+      <DependentUpon>RuntimeQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Query\HistoryQuery.resx">
+      <DependentUpon>HistoryQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SMSConfig.resx">
+      <DependentUpon>SMSConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SMSConfigs\SelectPerson.resx">
+      <DependentUpon>SelectPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SMSConfigs\SmsRecordSearch.resx">
+      <DependentUpon>SmsRecordSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SMSConfigs\SmsSendCtr.resx">
+      <DependentUpon>SmsSendCtr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SMSConfigs\TemplateConfig.resx">
+      <DependentUpon>TemplateConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfig.resx">
+      <DependentUpon>UnifiedConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\Configdownload.resx">
+      <DependentUpon>Configdownload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\Configimport.resx">
+      <DependentUpon>Configimport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\ConfigManager.resx">
+      <DependentUpon>ConfigManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\ConfigEdit.resx">
+      <DependentUpon>ConfigEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\RainWaterForm.resx">
+      <DependentUpon>RainWaterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\WaterLink.resx">
+      <DependentUpon>WaterLink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\Monitordownload.resx">
+      <DependentUpon>Monitordownload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\Monitorimport.resx">
+      <DependentUpon>Monitorimport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\MonitorManager.resx">
+      <DependentUpon>MonitorManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\MstypeManager.resx">
+      <DependentUpon>MstypeManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\SensoridManager.resx">
+      <DependentUpon>SensoridManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\TaginfoManager.resx">
+      <DependentUpon>TaginfoManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\RainLinkWaterHelp.resx">
+      <DependentUpon>RainLinkWaterHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UnifiedConfigs\WaterLinkHelp.resx">
+      <DependentUpon>WaterLinkHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VideoConfig\VidieoLinkHelp.resx">
+      <DependentUpon>VidieoLinkHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VideoConfig\VidieoLinkMonitor.resx">
+      <DependentUpon>VidieoLinkMonitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VideoConfig\VideoAddManager.resx">
+      <DependentUpon>VideoAddManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VideoConfig\VideoManager.resx">
+      <DependentUpon>VideoManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <EmbeddedResource Include="Data\city.json" />
+    <None Include="Data\帮助文档.chm" />
+    <None Include="Data\设备信息导入说明.xls" />
+    <None Include="packages.config" />
+    <None Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartKylinData\SmartKylinData.csproj">
+      <Project>{b25d08b9-9d58-43d9-b10d-475e5bae6bfa}</Project>
+      <Name>SmartKylinData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgroud2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bc2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\背景图.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\name.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pimg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\系统配置.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\img\LED关联显示.png" />
+    <Content Include="Data\img\LED关联添加.png" />
+    <Content Include="Data\img\LED显示.png" />
+    <Content Include="Data\img\LED添加.png" />
+    <Content Include="Data\img\传感器上传.png" />
+    <Content Include="Data\img\传感器显示.png" />
+    <Content Include="Data\img\传感器添加.png" />
+    <Content Include="Data\img\历史查询.png" />
+    <Content Include="Data\img\图标.png" />
+    <Content Include="Data\img\字库显示.png" />
+    <Content Include="Data\img\字库添加.png" />
+    <Content Include="Data\img\批量修改.png" />
+    <Content Include="Data\img\更新缓存.png" />
+    <Content Include="Data\img\皮肤.png" />
+    <Content Include="Data\img\监测点上传.png" />
+    <Content Include="Data\img\监测点上传1.png" />
+    <Content Include="Data\img\监测点信息显示.png" />
+    <Content Include="Data\img\监测点信息添加.png" />
+    <Content Include="Data\img\监测点显示.png" />
+    <Content Include="Data\img\监测点添加.png" />
+    <Content Include="Data\img\监测项上传.png" />
+    <Content Include="Data\img\监测项上传1.png" />
+    <Content Include="Data\img\监测项信息显示.png" />
+    <Content Include="Data\img\监测项信息添加.png" />
+    <Content Include="Data\img\监测项显示.png" />
+    <Content Include="Data\img\监测项添加.png" />
+    <Content Include="Data\img\监测项添加1.png" />
+    <Content Include="Data\img\短信显示.png" />
+    <Content Include="Data\img\短信添加.png" />
+    <Content Include="Data\img\短信添加1.png" />
+    <Content Include="Data\img\系统配置.png" />
+    <Content Include="Data\img\联系人分组添加.png" />
+    <Content Include="Data\img\联系人分组添加1.png" />
+    <Content Include="Data\img\联系人显示.png" />
+    <Content Include="Data\img\联系人添加.png" />
+    <Content Include="Data\img\联系人监测点显示.png" />
+    <Content Include="Data\img\联系人监测点添加.png" />
+    <Content Include="Data\img\视频点关联添加.png" />
+    <Content Include="Data\img\视频点分组添加.png" />
+    <Content Include="Data\img\视频点分组添加1.png" />
+    <Content Include="Data\img\视频点显示.png" />
+    <Content Include="Data\img\视频点添加.png" />
+    <Content Include="Data\img\视频监测点显示.png" />
+    <Content Include="Data\img\设备信息上传.png" />
+    <Content Include="Data\img\设备信息显示.png" />
+    <Content Include="Data\img\设备信息添加.png" />
+    <Content Include="FodyWeavers.xml" />
+    <Content Include="logo.ico" />
+    <None Include="Resources\物联网主页.jpg" />
+    <None Include="Resources\物联网显示.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.x64.3.3396.1786\build\cef.redist.x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.3.3396.1786\build\cef.redist.x64.props'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.3.3396.1786\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.3.3396.1786\build\cef.redist.x86.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.67.0.0\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.67.0.0\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.67.0.0\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.67.0.0\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.3.3.5\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.3.3.5\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props'))" />
+  </Target>
+  <Import Project="..\packages\CefSharp.Common.67.0.0\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.67.0.0\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\Fody.3.3.5\build\Fody.targets" Condition="Exists('..\packages\Fody.3.3.5\build\Fody.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

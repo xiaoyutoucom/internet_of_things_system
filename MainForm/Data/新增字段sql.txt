@@ -1,0 +1,63 @@
+ALTER TABLE public.smart_kylin_taginfo
+    ADD COLUMN units character varying(20) COLLATE pg_catalog."default";
+
+COMMENT ON COLUMN public.smart_kylin_config.units
+    IS '单位';
+
+
+ALTER TABLE public.smart_kylin_taginfo
+    ADD COLUMN alertrate numeric(20,0);
+
+COMMENT ON COLUMN public.smart_kylin_config.alertrate
+    IS '上报频率';
+
+ALTER TABLE public.smart_kylin_taginfo
+    ADD COLUMN precision numeric(20,8);
+
+COMMENT ON COLUMN public.smart_kylin_config.precision
+    IS '显示精度';
+
+
+//监测项
+
+ALTER TABLE public.smart_kylin_config
+    ADD COLUMN "ispush" character varying(20) COLLATE pg_catalog."default";
+
+
+COMMENT ON COLUMN public.smart_kylin_config."ispush"
+    IS '是否推送';
+//监测点
+
+ALTER TABLE public.smart_kylin_basicmonitor 
+    ADD COLUMN BJBM character varying(50) COLLATE pg_catalog."default";
+
+
+COMMENT ON COLUMN public.smart_kylin_basicmonitor.BJBM
+    IS '部件编码';
+//视频点
+    ALTER TABLE public.smart_kylin_video
+    ADD COLUMN spjxlxbm1 character varying(50) COLLATE pg_catalog."default";
+    ALTER TABLE public.smart_kylin_video
+    ADD COLUMN spjxlx1 character varying(50) COLLATE pg_catalog."default";
+    ALTER TABLE public.smart_kylin_video
+    ADD COLUMN jxcs1 character varying(500) COLLATE pg_catalog."default";
+    ALTER TABLE public.smart_kylin_video
+    ADD COLUMN spjxlxbm2 character varying(50) COLLATE pg_catalog."default";
+    ALTER TABLE public.smart_kylin_video
+    ADD COLUMN spjxlx2 character varying(50) COLLATE pg_catalog."default";
+    ALTER TABLE public.smart_kylin_video
+    ADD COLUMN jxcs2 character varying(500) COLLATE pg_catalog."default";
+
+//添加时间
+
+ALTER TABLE smart_kylin_basicmonitor 
+    ADD COLUMN ADDTIME date;
+ALTER TABLE public.smart_kylin_device
+    ADD COLUMN ADDTIME date;
+ALTER TABLE smart_kylin_config 
+    ADD COLUMN ADDTIME date;
+ALTER TABLE smart_kylin_sensor 
+    ADD COLUMN ADDTIME date;
+
+//短信模板，更改格式
+alter table smart_sms_config alter  COLUMN  ISENABLED  type character varying(50) ; 
