@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComprehensiveDisplay));
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,12 +65,12 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barToggleSwitchItem1 = new DevExpress.XtraBars.BarToggleSwitchItem();
             this.barToggleSwitchItem2 = new DevExpress.XtraBars.BarToggleSwitchItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -138,10 +138,11 @@
             // 
             this.layoutControl1.Controls.Add(this.tableLayoutPanel1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 26);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 31);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(497, 536);
+            this.layoutControl1.Size = new System.Drawing.Size(568, 692);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -150,9 +151,10 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 16);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(473, 512);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(536, 660);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // layoutControlGroup1
@@ -163,7 +165,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(497, 536);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(568, 692);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -171,7 +173,7 @@
             this.layoutControlItem1.Control = this.tableLayoutPanel1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(477, 516);
+            this.layoutControlItem1.Size = new System.Drawing.Size(542, 666);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -179,19 +181,22 @@
             // 
             this.layoutControl2.Controls.Add(this.gridControl1);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl2.Location = new System.Drawing.Point(497, 26);
+            this.layoutControl2.Location = new System.Drawing.Point(568, 31);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(581, 536);
+            this.layoutControl2.Size = new System.Drawing.Size(664, 692);
             this.layoutControl2.TabIndex = 1;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 12);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.gridControl1.Location = new System.Drawing.Point(16, 16);
             this.gridControl1.MainView = this.gridView2;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(557, 512);
+            this.gridControl1.Size = new System.Drawing.Size(632, 660);
             this.gridControl1.TabIndex = 8;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -308,7 +313,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(581, 536);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(664, 692);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem2
@@ -316,7 +321,7 @@
             this.layoutControlItem2.Control = this.gridControl1;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(561, 516);
+            this.layoutControlItem2.Size = new System.Drawing.Size(638, 666);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -387,9 +392,9 @@
             this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
             this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
             this.barButtonItem1.Name = "barButtonItem1";
-            toolTipItem3.Text = "刷新数据";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.barButtonItem1.SuperTip = superToolTip3;
+            toolTipItem1.Text = "刷新数据";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.barButtonItem1.SuperTip = superToolTip1;
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barButtonItem2
@@ -399,9 +404,9 @@
             this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
             this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
             this.barButtonItem2.Name = "barButtonItem2";
-            toolTipItem4.Text = "导出数据";
-            superToolTip4.Items.Add(toolTipItem4);
-            this.barButtonItem2.SuperTip = superToolTip4;
+            toolTipItem2.Text = "导出数据";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.barButtonItem2.SuperTip = superToolTip2;
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barToggleSwitchItem1
@@ -416,7 +421,7 @@
             this.barToggleSwitchItem1.Description = "开启预警弹窗";
             this.barToggleSwitchItem1.Hint = "开启预警弹窗";
             this.barToggleSwitchItem1.Id = 6;
-            this.barToggleSwitchItem1.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.barToggleSwitchItem1.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
             this.barToggleSwitchItem1.ItemAppearance.Hovered.Options.UseFont = true;
             this.barToggleSwitchItem1.ItemAppearance.Pressed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.barToggleSwitchItem1.ItemAppearance.Pressed.Options.UseForeColor = true;
@@ -427,44 +432,9 @@
             // 
             this.barToggleSwitchItem2.Caption = "关闭自动刷新";
             this.barToggleSwitchItem2.Id = 7;
+            this.barToggleSwitchItem2.ItemAppearance.Hovered.Options.UseFont = true;
             this.barToggleSwitchItem2.Name = "barToggleSwitchItem2";
             this.barToggleSwitchItem2.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barToggleSwitchItem2_CheckedChanged);
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlTop.Size = new System.Drawing.Size(1078, 26);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 562);
-            this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1078, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 26);
-            this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 536);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1078, 26);
-            this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 536);
             // 
             // barButtonItem3
             // 
@@ -480,9 +450,41 @@
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(1232, 31);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 723);
+            this.barDockControlBottom.Manager = this.barManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1232, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 692);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1232, 31);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 692);
+            // 
             // ComprehensiveDisplay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl2);
             this.Controls.Add(this.layoutControl1);
@@ -490,8 +492,9 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ComprehensiveDisplay";
-            this.Size = new System.Drawing.Size(1078, 562);
+            this.Size = new System.Drawing.Size(1232, 723);
             this.Load += new System.EventHandler(this.ComprehensiveDisplay_Load);
             this.VisibleChanged += new System.EventHandler(this.ComprehensiveDisplay_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
