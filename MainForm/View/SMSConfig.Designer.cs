@@ -42,11 +42,11 @@
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
             this.navigationFrame = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.configPanel = new DevExpress.XtraEditors.PanelControl();
-            this.navBarGroup4 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame)).BeginInit();
@@ -76,9 +76,10 @@
             this.navBarItem3,
             this.navBarItem4});
             this.navBarControl.Location = new System.Drawing.Point(0, 0);
+            this.navBarControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.navBarControl.Name = "navBarControl";
-            this.navBarControl.OptionsNavPane.ExpandedWidth = 192;
-            this.navBarControl.Size = new System.Drawing.Size(192, 646);
+            this.navBarControl.OptionsNavPane.ExpandedWidth = 219;
+            this.navBarControl.Size = new System.Drawing.Size(219, 831);
             this.navBarControl.TabIndex = 0;
             this.navBarControl.Text = "navBarControl";
             this.navBarControl.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinExplorerBarViewInfoRegistrator("Office 2016 Dark");
@@ -152,37 +153,6 @@
             this.navBarItem3.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem3.SmallImage")));
             this.navBarItem3.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem3_LinkClicked_1);
             // 
-            // navigationFrame
-            // 
-            this.navigationFrame.Appearance.BackColor = System.Drawing.Color.White;
-            this.navigationFrame.Appearance.Options.UseBackColor = true;
-            this.navigationFrame.Controls.Add(this.navigationPage1);
-            this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navigationFrame.Location = new System.Drawing.Point(192, 0);
-            this.navigationFrame.Name = "navigationFrame";
-            this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
-            this.navigationPage1});
-            this.navigationFrame.RibbonAndBarsMergeStyle = DevExpress.XtraBars.Docking2010.Views.RibbonAndBarsMergeStyle.Always;
-            this.navigationFrame.SelectedPage = this.navigationPage1;
-            this.navigationFrame.Size = new System.Drawing.Size(741, 646);
-            this.navigationFrame.TabIndex = 0;
-            this.navigationFrame.Text = "navigationFrame";
-            // 
-            // navigationPage1
-            // 
-            this.navigationPage1.Caption = "navigationPage1";
-            this.navigationPage1.Controls.Add(this.configPanel);
-            this.navigationPage1.Name = "navigationPage1";
-            this.navigationPage1.Size = new System.Drawing.Size(741, 646);
-            // 
-            // configPanel
-            // 
-            this.configPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.configPanel.Location = new System.Drawing.Point(0, 0);
-            this.configPanel.Name = "configPanel";
-            this.configPanel.Size = new System.Drawing.Size(741, 646);
-            this.configPanel.TabIndex = 0;
-            // 
             // navBarGroup4
             // 
             this.navBarGroup4.Caption = "短信发送功能";
@@ -198,14 +168,49 @@
             this.navBarItem4.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem4.SmallImage")));
             this.navBarItem4.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem4_LinkClicked_1);
             // 
+            // navigationFrame
+            // 
+            this.navigationFrame.Appearance.BackColor = System.Drawing.Color.White;
+            this.navigationFrame.Appearance.Options.UseBackColor = true;
+            this.navigationFrame.Controls.Add(this.navigationPage1);
+            this.navigationFrame.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navigationFrame.Location = new System.Drawing.Point(219, 0);
+            this.navigationFrame.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.navigationFrame.Name = "navigationFrame";
+            this.navigationFrame.Pages.AddRange(new DevExpress.XtraBars.Navigation.NavigationPageBase[] {
+            this.navigationPage1});
+            this.navigationFrame.RibbonAndBarsMergeStyle = DevExpress.XtraBars.Docking2010.Views.RibbonAndBarsMergeStyle.Always;
+            this.navigationFrame.SelectedPage = this.navigationPage1;
+            this.navigationFrame.Size = new System.Drawing.Size(847, 831);
+            this.navigationFrame.TabIndex = 0;
+            this.navigationFrame.Text = "navigationFrame";
+            // 
+            // navigationPage1
+            // 
+            this.navigationPage1.Caption = "navigationPage1";
+            this.navigationPage1.Controls.Add(this.configPanel);
+            this.navigationPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.navigationPage1.Name = "navigationPage1";
+            this.navigationPage1.Size = new System.Drawing.Size(968, 1068);
+            // 
+            // configPanel
+            // 
+            this.configPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.configPanel.Location = new System.Drawing.Point(0, 0);
+            this.configPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.configPanel.Name = "configPanel";
+            this.configPanel.Size = new System.Drawing.Size(968, 1068);
+            this.configPanel.TabIndex = 0;
+            // 
             // SMSConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.navigationFrame);
             this.Controls.Add(this.navBarControl);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "SMSConfig";
-            this.Size = new System.Drawing.Size(933, 646);
+            this.Size = new System.Drawing.Size(1066, 831);
             this.Load += new System.EventHandler(this.UnifiedConfig_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).EndInit();

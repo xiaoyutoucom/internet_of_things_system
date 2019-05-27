@@ -625,8 +625,14 @@ namespace SmartKylinApp.View.Query
                 foreach (Smart_Kylin_Runtime dtm in listr)
                 {
                     cr = GlobalHandler.configresp.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);
+                    if (cr == null)
+                    {
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = "", MONITORMC = "", MONITORTYPE = msType });
+                    }
+                    else { 
                     msType = lstMsType.Where(p => p.TYPE_KEY == cr.STATIONID.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
                     dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = cr.CONFIG_DESC, MONITORMC = cr.STATIONID.BMMC, MONITORTYPE = msType });
+                    }
                 }
                 gridControl1.DataSource = dllist;
                 splashScreenManager1.CloseWaitForm();
