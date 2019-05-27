@@ -39,7 +39,7 @@ namespace SmartKylinApp.View.Query
         private Label lab22;
         private Label lab2;
         private Label lab1;
-        private List<ConfigRecord> cfglist;
+        //private List<ConfigRecord> cfglist;
         private List<DataListModel> dllist;
         private List<BasicMonitorRecord> bmrlist;
         private object sd;
@@ -133,7 +133,7 @@ namespace SmartKylinApp.View.Query
                 tableLayoutPanel1.Controls.Clear();
                 //供水03 热力04 排水01 燃气02 井盖990498
                 rlist = GlobalHandler.runtimeResp.Table.ToList();
-                cfglist = GlobalHandler.configresp.GetAllList();
+                //cfglist = GlobalHandler.configresp.GetAllList();
                 bmrlist= GlobalHandler.monitorresp.GetAllList();
                 barDate.Caption = "最后更新时间：" + DateTime.Now.ToLongTimeString().ToString();
                 var Type = ConfigHelp.Config["Application:Config:Type"];
@@ -365,7 +365,7 @@ namespace SmartKylinApp.View.Query
                 barDate.Caption = "最后更新时间：" + DateTime.Now.ToLongTimeString().ToString();
                 string mc, key;
                 rlist = GlobalHandler.runtimeResp.Table.ToList();
-                cfglist = GlobalHandler.configresp.GetAllList();
+                //cfglist = GlobalHandler.configresp.GetAllList();
                 bmrlist = GlobalHandler.monitorresp.GetAllList();
                 for (int i = 0; i < tp.Length; i++)
                 {
@@ -466,7 +466,7 @@ namespace SmartKylinApp.View.Query
                 sd = sender;
                 Label la = (Label)sender;
                 var key = la.Tag.ToString();
-                List<ConfigRecord> listr = cfglist.Where(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key).ToList();
+                List<ConfigRecord> listr = GlobalHandler.configresp.GetAllList(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
                 dllist = new List<DataListModel>();
                 Smart_Kylin_Runtime cr = new Smart_Kylin_Runtime();
                 string msType = "";
@@ -568,7 +568,7 @@ namespace SmartKylinApp.View.Query
                 //    }
                 //}
 
-                List<ConfigRecord> listr1 = cfglist.Where(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key).ToList();
+                List<ConfigRecord> listr1 = GlobalHandler.configresp.GetAllList(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
                 //在线监测点
                 List<Smart_Kylin_Runtime> listzx = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && a.STATUS == "1").ToList();
                 dllist = new List<DataListModel>();
