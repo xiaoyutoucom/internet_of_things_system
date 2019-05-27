@@ -536,7 +536,7 @@ namespace SmartKylinApp.View.Query
                         mc = tp[i].Split(':')[0];
                     }
                 }
-                txt_top.Text = mc + "监控总数:" + la.Text;
+                txt_top.Text = mc + "监控在线:" + la.Text;
                 txt_top.ForeColor = la.ForeColor;
                 #endregion
                 //List < Smart_Kylin_Runtime > listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "1") && (a.LEVEL == "0"||a.LEVEL==null)).ToList();
@@ -594,7 +594,7 @@ namespace SmartKylinApp.View.Query
                         mc = tp[i].Split(':')[0];
                     }
                 }
-                txt_top.Text = mc + "监控总数:" + la.Text;
+                txt_top.Text = mc + "监控离线:" + la.Text;
                 txt_top.ForeColor = la.ForeColor;
                 #endregion
                 List<Smart_Kylin_Runtime> listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "0"|| a.STATUS == null)).ToList();
@@ -677,7 +677,7 @@ namespace SmartKylinApp.View.Query
                         mc = tp[i].Split(':')[0];
                     }
                 }
-                txt_top.Text = mc + "监控总数:" + la.Text;
+                txt_top.Text = mc + "监控报警:" + la.Text;
                 txt_top.ForeColor = la.ForeColor;
                 #endregion
                 List<Smart_Kylin_Runtime> listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "1")&& a.LEVEL=="1").ToList();
