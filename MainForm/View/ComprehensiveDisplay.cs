@@ -36,7 +36,7 @@ namespace SmartKylinApp.View.Query
         private bool frist = true;
         private Label lab3;
         private Label lab4;
-        private Label lab22;
+        //private Label lab22;
         private Label lab2;
         private Label lab1;
         //private List<ConfigRecord> cfglist;
@@ -44,6 +44,7 @@ namespace SmartKylinApp.View.Query
         private List<BasicMonitorRecord> bmrlist;
         private object sd;
         private bool fristload = true;
+        private string Type;
         private string[] tp;
 
         //private string mc;
@@ -53,8 +54,8 @@ namespace SmartKylinApp.View.Query
         {
             InitializeComponent();
             //禁止右键菜单
-            layoutControl2.AllowCustomization = false;
-            layoutControl1.AllowCustomization = false;
+            //layoutControl2.AllowCustomization = false;
+            //layoutControl1.AllowCustomization = false;
             bar2.Manager.AllowShowToolbarsPopup = false;
             bar2.OptionsBar.AllowQuickCustomization = false;
             gridView2.OptionsMenu.EnableColumnMenu = false;
@@ -136,7 +137,7 @@ namespace SmartKylinApp.View.Query
                 //cfglist = GlobalHandler.configresp.GetAllList();
                 bmrlist= GlobalHandler.monitorresp.GetAllList();
                 barDate.Caption = "最后更新时间：" + DateTime.Now.ToLongTimeString().ToString();
-                var Type = ConfigHelp.Config["Application:Config:Type"];
+                Type = ConfigHelp.Config["Application:Config:Type"];
                  tp = Type.Split(',');
                 this.tableLayoutPanel1.RowCount = tp.Length / 2;
                 string mc, key;
@@ -462,10 +463,26 @@ namespace SmartKylinApp.View.Query
                 splashScreenManager1.ShowWaitForm();
                 splashScreenManager1.SetWaitFormCaption("请稍后,数据加载中....");     // 标题
                 splashScreenManager1.SetWaitFormDescription("正在更新数据.....");
-                //getLoad();
                 sd = sender;
                 Label la = (Label)sender;
                 var key = la.Tag.ToString();
+                #region 刷新lable
+                tp = Type.Split(',');
+                string mc = "未选择", keystr;
+                for (int i = 0; i < tp.Length; i++)
+                {
+
+                    keystr = tp[i].Split(':')[1];
+                    if (keystr == key)
+                    {
+                        mc = tp[i].Split(':')[0];
+                    }
+                }
+                txt_top.Text = mc+"监控总数:"+la.Text;
+                txt_top.ForeColor = la.ForeColor;
+                #endregion
+                //getLoad();
+
                 List<ConfigRecord> listr = GlobalHandler.configresp.GetAllList(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
                 dllist = new List<DataListModel>();
                 Smart_Kylin_Runtime cr = new Smart_Kylin_Runtime();
@@ -507,6 +524,21 @@ namespace SmartKylinApp.View.Query
                 sd = sender;
                 Label la = (Label)sender;
                 var key = la.Tag.ToString();
+                #region 刷新lable
+                tp = Type.Split(',');
+                string mc = "未选择", keystr;
+                for (int i = 0; i < tp.Length; i++)
+                {
+
+                    keystr = tp[i].Split(':')[1];
+                    if (keystr == key)
+                    {
+                        mc = tp[i].Split(':')[0];
+                    }
+                }
+                txt_top.Text = mc + "监控总数:" + la.Text;
+                txt_top.ForeColor = la.ForeColor;
+                #endregion
                 //List < Smart_Kylin_Runtime > listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "1") && (a.LEVEL == "0"||a.LEVEL==null)).ToList();
                 //在线监测点
                 List<Smart_Kylin_Runtime> listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && a.STATUS == "1").ToList();
@@ -550,6 +582,21 @@ namespace SmartKylinApp.View.Query
                 sd = sender;
                 Label la = (Label)sender;
                 var key = la.Tag.ToString();
+                #region 刷新lable
+                tp = Type.Split(',');
+                string mc = "未选择", keystr;
+                for (int i = 0; i < tp.Length; i++)
+                {
+
+                    keystr = tp[i].Split(':')[1];
+                    if (keystr == key)
+                    {
+                        mc = tp[i].Split(':')[0];
+                    }
+                }
+                txt_top.Text = mc + "监控总数:" + la.Text;
+                txt_top.ForeColor = la.ForeColor;
+                #endregion
                 List<Smart_Kylin_Runtime> listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "0"|| a.STATUS == null)).ToList();
                 //dllist = new List<DataListModel>();
                 //ConfigRecord cr = new ConfigRecord();
@@ -618,6 +665,21 @@ namespace SmartKylinApp.View.Query
                 Label la = (Label)sender;
                 gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
                 var key = la.Tag.ToString();
+                #region 刷新lable
+                tp = Type.Split(',');
+                string mc = "未选择", keystr;
+                for (int i = 0; i < tp.Length; i++)
+                {
+
+                    keystr = tp[i].Split(':')[1];
+                    if (keystr == key)
+                    {
+                        mc = tp[i].Split(':')[0];
+                    }
+                }
+                txt_top.Text = mc + "监控总数:" + la.Text;
+                txt_top.ForeColor = la.ForeColor;
+                #endregion
                 List<Smart_Kylin_Runtime> listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "1")&& a.LEVEL=="1").ToList();
                 dllist = new List<DataListModel>();
                 ConfigRecord cr = new ConfigRecord();
