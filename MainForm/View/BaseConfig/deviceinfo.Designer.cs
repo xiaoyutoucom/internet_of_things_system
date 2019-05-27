@@ -977,7 +977,7 @@
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(178, 53);
-            this.layoutControlItem4.Text = "监测项类型";
+            this.layoutControlItem4.Text = "监测点类型";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(120, 18);
             // 
