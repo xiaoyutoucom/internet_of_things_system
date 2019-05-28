@@ -69,7 +69,7 @@ namespace SmartKylinApp.View.Query
             splashScreenManager1.ShowWaitForm();
             splashScreenManager1.SetWaitFormCaption("请稍后,数据加载中....");     // 标题
             splashScreenManager1.SetWaitFormDescription("正在更新数据.....");
-
+            frist = true;
             lstMsType = GlobalHandler.mstyperesp.GetAllList();
             //getLoad();
             getData();//先启动刷新数据一次
@@ -130,7 +130,7 @@ namespace SmartKylinApp.View.Query
         {
             try
             { 
-            cfglist = GlobalHandler.configresp.GetAllList();
+           cfglist = GlobalHandler.configresp.GetAllList();
             XtraMessageBox.Show("数据缓存成功!");
             }
             catch
@@ -571,7 +571,7 @@ namespace SmartKylinApp.View.Query
                         dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = cr.CONFIG_VALUE, SAVE_DATE = cr.SAVE_DATE.ToString(), CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType, CCBH = dtm.SENSORID.Device.CCBH });
                     }
                 }
-                //gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
+                //gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度                      
                 gridControl1.DataSource = dllist;
                 splashScreenManager1.CloseWaitForm();
             }
@@ -738,7 +738,7 @@ namespace SmartKylinApp.View.Query
                     }
                 }
 
-                //gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
+                //gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度                  
                 gridControl1.DataSource = dllist;
                 splashScreenManager1.CloseWaitForm();
             }
@@ -834,21 +834,20 @@ namespace SmartKylinApp.View.Query
         }
         //关闭或切换窗体计时器关闭
         private void ComprehensiveDisplay_VisibleChanged(object sender, EventArgs e)
-        { 
-            if (thread != null)
-            {
-                //重启软件关闭线程
-                thread.Abort();
-                while (thread.ThreadState != ThreadState.Aborted)
-                {
-                    //当调用Abort方法后，如果thread线程的状态不为Aborted，主线程就一直在这里做循环，直到thread线程的状态变为Aborted为止  
-                    Thread.Sleep(100);
-                }
-            }
+        {            
             if (!frist)
             {
                 timea.Stop();
-
+                if (thread != null)
+                {
+                    //重启软件关闭线程
+                    thread.Abort();
+                    while (thread.ThreadState != ThreadState.Aborted)
+                    {
+                        //当调用Abort方法后，如果thread线程的状态不为Aborted，主线程就一直在这里做循环，直到thread线程的状态变为Aborted为止  
+                        Thread.Sleep(100);
+                    }
+                }
             }
             else
             {
