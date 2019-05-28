@@ -571,7 +571,7 @@ namespace SmartKylinApp.View.Query
                         dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = cr.CONFIG_VALUE, SAVE_DATE = cr.SAVE_DATE.ToString(), CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType, CCBH = dtm.SENSORID.Device.CCBH });
                     }
                 }
-                gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
+                //gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
                 gridControl1.DataSource = dllist;
                 splashScreenManager1.CloseWaitForm();
             }
@@ -650,7 +650,7 @@ namespace SmartKylinApp.View.Query
                         dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = cr.CONFIG_DESC, MONITORMC = cr.STATIONID.BMMC, MONITORTYPE = msType, CCBH = cr.SENSORID.Device.CCBH });
                     }
                 }
-                gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
+                //gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
                 gridControl1.DataSource = dllist;
                 splashScreenManager1.CloseWaitForm();
             }
@@ -738,7 +738,7 @@ namespace SmartKylinApp.View.Query
                     }
                 }
 
-                gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
+                //gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
                 gridControl1.DataSource = dllist;
                 splashScreenManager1.CloseWaitForm();
             }
@@ -760,7 +760,7 @@ namespace SmartKylinApp.View.Query
                 // getLoad();
 
                 Label la = (Label)sender;
-                gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
+                //gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
                 var key = la.Tag.ToString();
 
                 int count = GlobalHandler.configresp.Count(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
@@ -827,10 +827,10 @@ namespace SmartKylinApp.View.Query
         //行号显示
         private void gridView2_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
-            if (e.Info.IsRowIndicator && e.RowHandle > -1)
-            {
-                e.Info.DisplayText = (e.RowHandle + 1).ToString();
-            }
+            //if (e.Info.IsRowIndicator && e.RowHandle > -1)
+            //{
+            //    e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            //}
         }
         //关闭或切换窗体计时器关闭
         private void ComprehensiveDisplay_VisibleChanged(object sender, EventArgs e)
