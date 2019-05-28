@@ -834,14 +834,21 @@ namespace SmartKylinApp.View.Query
         }
         //关闭或切换窗体计时器关闭
         private void ComprehensiveDisplay_VisibleChanged(object sender, EventArgs e)
-        {
+        { 
+            if (thread != null)
+            {
+                //重启软件关闭线程
+                thread.Abort();
+                while (thread.ThreadState != ThreadState.Aborted)
+                {
+                    //当调用Abort方法后，如果thread线程的状态不为Aborted，主线程就一直在这里做循环，直到thread线程的状态变为Aborted为止  
+                    Thread.Sleep(100);
+                }
+            }
             if (!frist)
             {
                 timea.Stop();
-                if (thread != null)
-                {
-                    thread.Abort();
-                }
+
             }
             else
             {
