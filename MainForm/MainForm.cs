@@ -30,6 +30,8 @@ namespace MainForm
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
+        private ComprehensiveDisplay comprehensive;
+
         public MainForm()
         {
            
@@ -71,7 +73,11 @@ namespace MainForm
             //splashScreenManager1.CloseWaitForm();
             GlobalHandler.CurrentSkin = defaultLookAndFeel1.LookAndFeel.SkinName;
             SkinLoad();
-            GlobalHandler.AddControl(new ComprehensiveDisplay());
+            //GlobalHandler.AddControl(new ComprehensiveDisplay());
+            comprehensive = new ComprehensiveDisplay();
+            comprehensive.Dock = DockStyle.Fill;
+            GlobalHandler.AddControl(comprehensive);
+
         }
 
         private void SkinLoad()
@@ -228,7 +234,7 @@ namespace MainForm
             var frm = new CacheManger();
             if (frm.ShowDialog() != DialogResult.OK) return;
         }
-
+        //同一配置
         private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             GlobalHandler.AddControl(new UnifiedConfig());
@@ -247,10 +253,11 @@ namespace MainForm
             //禁用鼠标悬浮title
             e.Show = false;   
         }
-
+        //数据总览
         private void barButtonItem17_ItemClick(object sender, ItemClickEventArgs e)
         {
-            GlobalHandler.AddControl(new ComprehensiveDisplay());
+            
+            GlobalHandler.AddControl(comprehensive);
         }
         /// <summary>
         /// 短息管理

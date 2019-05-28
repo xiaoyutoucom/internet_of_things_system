@@ -70,6 +70,7 @@
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
             this.barItem_runingtime = new DevExpress.XtraBars.BarStaticItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SmartKylinApp.View.ComprehensiveDocument.WaitForm1), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.Container)).BeginInit();
             this.Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainContainer)).BeginInit();
@@ -86,8 +87,9 @@
             this.Container.Controls.Add(this.ribbonControl1);
             this.Container.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Container.Location = new System.Drawing.Point(0, 0);
+            this.Container.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Container.Name = "Container";
-            this.Container.Size = new System.Drawing.Size(1178, 725);
+            this.Container.Size = new System.Drawing.Size(1346, 932);
             this.Container.TabIndex = 6;
             // 
             // MainContainer
@@ -96,20 +98,20 @@
             this.MainContainer.Appearance.Options.UseImage = true;
             this.MainContainer.AutoSize = true;
             this.MainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainContainer.Location = new System.Drawing.Point(2, 77);
-            this.MainContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MainContainer.Location = new System.Drawing.Point(2, 98);
             this.MainContainer.Name = "MainContainer";
-            this.MainContainer.Size = new System.Drawing.Size(1174, 619);
+            this.MainContainer.Size = new System.Drawing.Size(1342, 797);
             this.MainContainer.TabIndex = 9;
             // 
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.ItemLinks.Add(this.barStaticItem4);
             this.ribbonStatusBar1.ItemLinks.Add(this.barStatictime);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(2, 696);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(2, 895);
+            this.ribbonStatusBar1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(1174, 27);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(1342, 35);
             this.ribbonStatusBar1.ToolTipController = this.toolTipController1;
             // 
             // barStaticItem4
@@ -153,12 +155,11 @@
             this.barButtonItem17,
             this.barButtonItem18});
             this.ribbonControl1.Location = new System.Drawing.Point(2, 2);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbonControl1.MaxItemId = 15;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemFontEdit1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1174, 48);
+            this.ribbonControl1.Size = new System.Drawing.Size(1342, 61);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar2;
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
             this.ribbonControl1.ToolTipController = this.toolTipController1;
@@ -445,11 +446,12 @@
             this.ribbonStatusBar2.ItemLinks.Add(this.barSkin);
             this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItem8);
             this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItem4);
-            this.ribbonStatusBar2.Location = new System.Drawing.Point(2, 50);
+            this.ribbonStatusBar2.Location = new System.Drawing.Point(2, 63);
+            this.ribbonStatusBar2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar2.Name = "ribbonStatusBar2";
             this.ribbonStatusBar2.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar2.ShowSizeGrip = false;
-            this.ribbonStatusBar2.Size = new System.Drawing.Size(1174, 27);
+            this.ribbonStatusBar2.Size = new System.Drawing.Size(1342, 35);
             this.ribbonStatusBar2.ToolTipController = this.toolTipController1;
             // 
             // barStaticItem2
@@ -537,13 +539,13 @@
             // 
             // MainForm
             // 
-            this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SmartKylinApp.View.ComprehensiveDocument.WaitForm1), true, true);
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 725);
+            this.ClientSize = new System.Drawing.Size(1346, 932);
             this.Controls.Add(this.Container);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.Container)).EndInit();
