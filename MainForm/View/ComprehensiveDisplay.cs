@@ -170,6 +170,7 @@ namespace SmartKylinApp.View.Query
                 tp = Type.Split(',');
                 this.tableLayoutPanel1.RowCount = tp.Length / 2;
                 string mc, key;
+                //循环生成窗体控件
                 for (int i = 0; i < tp.Length; i++)
                 {
                     mc = tp[i].Split(':')[0];
@@ -267,8 +268,8 @@ namespace SmartKylinApp.View.Query
                     typ1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
                     typ1.Controls.Add(lc1, 0, 1);
                     typ1.Controls.Add(lc2, 0, 2);
-                    typ1.Controls.Add(lc3, 0, 3);
-                    typ1.Controls.Add(lc4, 0, 4);
+                    typ1.Controls.Add(lc4, 0, 3);
+                    typ1.Controls.Add(lc3, 0, 4);
                     typ1.Controls.Add(lab1, 1, 1);
                     typ1.Controls.Add(lab2, 1, 2);
                     typ1.Controls.Add(lab4, 1, 3);
