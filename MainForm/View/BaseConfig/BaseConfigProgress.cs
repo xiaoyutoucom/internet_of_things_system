@@ -59,52 +59,53 @@ namespace SmartKylinApp.View.BaseConfig
         private void BaseConfigProgress_Shown(object sender, EventArgs e)
         {
             logbuild =new StringBuilder();
-            var a=new Thread(aa =>
-            {
-                try
-                {
-                    logbuild.Clear();
-                    //导入数据
-                    if (datatable != null)
-                    {
-                        if (Topic == "device")
-                        {
-                            foreach (DataRow row in datatable.Rows)
-                            {
-                                var mstype = row[0].ToString();
-                                var sbbm = "";
-                                var count = GlobalHandler.deviceresp.Count(s => s.SBBM.StartsWith(mstype));
-                                if (count > 0)
-                                {
-                                    var str = (int.Parse(GlobalHandler.deviceresp.GetAllList(s => s.SBBM.StartsWith(mstype))
-                                                             .OrderByDescending(q => q.SBBM.Substring(6))
-                                                             .FirstOrDefault()
-                                                             ?.SBBM.Substring(6) ?? throw new InvalidOperationException()) + 1)
-                                        .ToString();
-                                    var hl = "";
-                                    for (var i = 0; i < 5 - str.Length; i++)
-                                        hl += "0";
-                                    sbbm = mstype + hl + str;
-                                }
-                                else
-                                {
-                                    sbbm = mstype + @"00001";
-                                }
+            var a = new Thread(aa =>
+              {
+              try
+              {
+                  logbuild.Clear();
+                //导入数据
+                if (datatable != null)
+                  {
+                      if (Topic == "device")
+                      {
+                          foreach (DataRow row in datatable.Rows)
+                          {
+                              var mstype = row[0].ToString();
+                              var sbbm = "";
+                              var count = GlobalHandler.deviceresp.Count(s => s.SBBM.StartsWith(mstype));
+                              if (count > 0)
+                              {
+                                  var str = (int.Parse(GlobalHandler.deviceresp.GetAllList(s => s.SBBM.StartsWith(mstype))
+                                                         .OrderByDescending(q => q.SBBM.Substring(6))
+                                                         .FirstOrDefault()
+                                                         ?.SBBM.Substring(6) ?? throw new InvalidOperationException()) + 1)
+                                    .ToString();
+                                  var hl = "";
+                                  for (var i = 0; i < 5 - str.Length; i++)
+                                      hl += "0";
+                                  sbbm = mstype + hl + str;
+                              }
+                              else
+                              {
+                                  sbbm = mstype + @"00001";
+                              }
 
-                                var model = new DeviceRecord();
+                              var model = new DeviceRecord();
 
-                                model.SBBM = sbbm;
-                                model.SBTYPE = mstype;
-                                model.SBMC = row[1].ToString();
-                                model.CITYCODE = row[2].ToString();
-                                model.CITYNAME = row[3].ToString();
-                                model.CCBH = row[4].ToString();
-                                model.SCCJ = row[5].ToString();
-                                model.FREQUENCY = double.Parse(row[6].ToString() ?? "0");
+                              model.SBBM = sbbm;
+                              model.SBTYPE = mstype;
+                              model.SBMC = row[1].ToString();
+                              model.CITYCODE = row[2].ToString();
+                              model.CITYNAME = row[3].ToString();
+                              model.CCBH = row[4].ToString();
+                              model.SCCJ = row[5].ToString();
+                              model.FREQUENCY = double.Parse(row[6].ToString() ?? "0");
                                 //操作人
                                 model.EXTENDCODE2 = row[7].ToString();
-
-                                model.AZRQ = DateTime.Parse(row[8].ToString());
+                                  var str1 = row[8];
+                                  var dad = str1 ?? DateTime.Now.ToString("YY-MM-DD");
+                                model.AZRQ = row[8].ToString()==""? DateTime.Now: DateTime.Parse(row[8].ToString());
                                 model.GLDW = row[9].ToString();
                                 model.BZ = row[10].ToString();
                                 model.ADDTIME = DateTime.Now;
