@@ -25,6 +25,7 @@ using System.Reflection.Emit;
 using DevExpress.XtraGauges.Core.Model;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Alerter;
+using System.Threading;
 
 namespace SmartKylinApp.View.Query
 {
@@ -32,14 +33,14 @@ namespace SmartKylinApp.View.Query
     {
         private ILog _log = LogManager.GetLogger("ComprehensiveDisplay");
         private List<Smart_Kylin_Runtime> rlist;
-        private Timer timea;
+        private System.Windows.Forms.Timer timea;
         private bool frist = true;
         private Label lab3;
         private Label lab4;
         //private Label lab22;
         private Label lab2;
         private Label lab1;
-        //private List<ConfigRecord> cfglist;
+        private List<ConfigRecord> cfglist;
         private List<DataListModel> dllist;
         private List<BasicMonitorRecord> bmrlist;
         private object sd;
@@ -73,10 +74,10 @@ namespace SmartKylinApp.View.Query
             //getLoad();
             getData();//先启动刷新数据一次
             //定时器，根据配置时间刷新
-            timea = new Timer();
+            timea = new System.Windows.Forms.Timer();
             int t = int.Parse(ConfigHelp.Config["Application:Config:Time"]);
             barTime.Caption = "刷新频率：" + t.ToString();
-            timea.Interval = 60000*t;
+            timea.Interval = 60000 * t;
             timea.Enabled = true;
             timea.Tick += Time_Tick;
 
@@ -106,7 +107,7 @@ namespace SmartKylinApp.View.Query
         {
             if (sd == null) return;
             Label l = (Label)sd;
-            var labname=l.Name.Substring(0, 6);
+            var labname = l.Name.Substring(0, 6);
             if (labname == "lab_bj")
             {
                 Lab_bj_Click(sd, null);
@@ -125,20 +126,48 @@ namespace SmartKylinApp.View.Query
             }
 
         }
+        private void ConfigTask()
+        {
+            try
+            { 
+            cfglist = GlobalHandler.configresp.GetAllList();
+            XtraMessageBox.Show("数据缓存成功!");
+            }
+            catch
+            {
+
+            }
+        }
         //代码生成界面及点击事件
         private void getData()
         {
-            try {
+            try
+            {
+                cfglist = null;
+                if (thread!=null) { 
+                     thread.Abort();//调用Thread.Abort方法试图强制终止thread线程  
+                               //上面调用Thread.Abort方法后线程thread不一定马上就被终止了，所以我们在这里写了个循环来做检查，看线程thread是否已经真正停止。其实也可以在这里使用Thread.Join方法来等待线程thread终止，Thread.Join方法做的事情和我们在这里写的循环效果是一样的，都是阻塞主线程直到thread线程终止为止  
+                    while (thread.ThreadState != ThreadState.Aborted)
+                    {
+                        //当调用Abort方法后，如果thread线程的状态不为Aborted，主线程就一直在这里做循环，直到thread线程的状态变为Aborted为止  
+                        Thread.Sleep(100);
+                    }
+                }
+
+                //异步刷新数据
+                thread = new Thread((() => ConfigTask()));
+                thread.Start();
+
                 typeCountInfo = "";
 
                 tableLayoutPanel1.Controls.Clear();
                 //供水03 热力04 排水01 燃气02 井盖990498
                 rlist = GlobalHandler.runtimeResp.Table.ToList();
                 //cfglist = GlobalHandler.configresp.GetAllList();
-                bmrlist= GlobalHandler.monitorresp.GetAllList();
+                bmrlist = GlobalHandler.monitorresp.GetAllList();
                 barDate.Caption = "最后更新时间：" + DateTime.Now.ToLongTimeString().ToString();
                 Type = ConfigHelp.Config["Application:Config:Type"];
-                 tp = Type.Split(',');
+                tp = Type.Split(',');
                 this.tableLayoutPanel1.RowCount = tp.Length / 2;
                 string mc, key;
                 for (int i = 0; i < tp.Length; i++)
@@ -154,7 +183,7 @@ namespace SmartKylinApp.View.Query
                     lc1.Name = "lczs" + key;
                     lc1.Size = new System.Drawing.Size(75, 18);
                     lc1.TabIndex = 16;
-                    lc1.Text = "监测点总数：";                    
+                    lc1.Text = "监测点总数：";
                     LabelControl lc2 = new LabelControl();
                     lc2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
                     lc2.Location = new System.Drawing.Point(69, 16);
@@ -191,7 +220,7 @@ namespace SmartKylinApp.View.Query
                     lab1.TabIndex = 18;
                     lab1.Tag = key;
                     lab1.Text = "0";
-                    lab1.Click += new EventHandler(Lab_zs_Click);                    
+                    lab1.Click += new EventHandler(Lab_zs_Click);
                     lab2 = new Label();
                     lab2.AutoSize = true;
                     lab2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Underline);
@@ -220,7 +249,7 @@ namespace SmartKylinApp.View.Query
                     lab3.Click += new EventHandler(Lab_bj_Click);
                     lab4 = new Label();
                     lab4.AutoSize = true;
-                   
+
                     lab4.ForeColor = System.Drawing.Color.Gray;
                     lab4.Cursor = Cursors.Hand;
                     lab4.Location = new System.Drawing.Point(147, 56);
@@ -242,8 +271,8 @@ namespace SmartKylinApp.View.Query
                     typ1.Controls.Add(lc4, 0, 4);
                     typ1.Controls.Add(lab1, 1, 1);
                     typ1.Controls.Add(lab2, 1, 2);
-                    typ1.Controls.Add(lab3, 1, 3);
-                    typ1.Controls.Add(lab4, 1, 4);
+                    typ1.Controls.Add(lab4, 1, 3);
+                    typ1.Controls.Add(lab3, 1, 4);
                     typ1.Dock = System.Windows.Forms.DockStyle.Fill;
                     typ1.Location = new System.Drawing.Point(2, 27);
                     typ1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -260,13 +289,13 @@ namespace SmartKylinApp.View.Query
 
                     ct1.Controls.Add(typ1);
                     ct1.Dock = System.Windows.Forms.DockStyle.Fill;
-                   
+
                     ct1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
                     ct1.Name = "ct" + key;
                     ct1.Size = new System.Drawing.Size(298, 212);
                     ct1.TabIndex = i;
                     ct1.Text = mc;
-                    this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100/tp.Length / 2));
+                    this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100 / tp.Length / 2));
                     if (i == 0)
                     {
                         this.tableLayoutPanel1.Controls.Add(ct1, 0, 0);
@@ -274,10 +303,10 @@ namespace SmartKylinApp.View.Query
                     else
                     {
                         int a, b;
-                        if (i%2==0)
+                        if (i % 2 == 0)
                         {
-                             a = i / 2;
-                             b = 0;
+                            a = i / 2;
+                            b = 0;
                         }
                         else
                         {
@@ -291,14 +320,14 @@ namespace SmartKylinApp.View.Query
                     //监测总数
                     //int zs = cfglist.Where(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key).Count();
                     int zs = bmrlist.Count(a => a.BMID.Substring(6, 2) == key);
-                    lab1.Text = zs.ToString();                    
+                    lab1.Text = zs.ToString();
 
                     //报警检测项个数
                     //int bj = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key).Where(a => a.LEVEL == "1").Where(a => a.STATUS == "1").Count();
                     //lab3.Text = bj.ToString();
                     //报警监测点个数
                     var alst = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && a.LEVEL == "1" && a.STATUS == "1").ToList().GroupBy(p => p.CONFIG_CODE.Substring(0, 19)).Select(p => p.Key);
-                     int alert=alst.Count();
+                    int alert = alst.Count();
                     lab3.Text = alert.ToString();
 
                     typeCountInfo += mc + ":" + alert.ToString() + "\r\n";
@@ -336,13 +365,13 @@ namespace SmartKylinApp.View.Query
                     lab2.Text = zxgs.ToString();
 
                     //离线监测点个数
-                    lab4.Text = (zs-zxgs).ToString();
+                    lab4.Text = (zs - zxgs).ToString();
 
                 }
                 splashScreenManager1.CloseWaitForm();
                 return;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 splashScreenManager1.CloseWaitForm();
                 XtraMessageBox.Show("获取总览数据失败");
@@ -362,6 +391,21 @@ namespace SmartKylinApp.View.Query
         {
             try
             {
+                cfglist = null;
+                //异步刷新数据
+                if (thread != null)
+                {
+                    thread.Abort();//调用Thread.Abort方法试图强制终止thread线程  
+                    //上面调用Thread.Abort方法后线程thread不一定马上就被终止了，所以我们在这里写了个循环来做检查，看线程thread是否已经真正停止。其实也可以在这里使用Thread.Join方法来等待线程thread终止，Thread.Join方法做的事情和我们在这里写的循环效果是一样的，都是阻塞主线程直到thread线程终止为止  
+                    while (thread.ThreadState != ThreadState.Aborted)
+                    {
+                        //当调用Abort方法后，如果thread线程的状态不为Aborted，主线程就一直在这里做循环，直到thread线程的状态变为Aborted为止  
+                        Thread.Sleep(100);
+                    }
+                }
+              
+                thread = new Thread((() => ConfigTask()));
+                thread.Start();
                 typeCountInfo = "";
                 barDate.Caption = "最后更新时间：" + DateTime.Now.ToLongTimeString().ToString();
                 string mc, key;
@@ -425,26 +469,31 @@ namespace SmartKylinApp.View.Query
 
                     //离线检测点个数
                     var llst = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "0" || a.STATUS == null)).ToList().GroupBy(p => p.CONFIG_CODE.Substring(0, 19)).Select(p => p.Key);
-                    int llx = llst.Count();
-                    ct4.Text = llx.ToString();
+                    //int llx = llst.Count();
 
-                    //正常检测点个数
-                    var jcdzs = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key).GroupBy(p => p.CONFIG_CODE.Substring(0, 19)).Select(p => p.Key).ToList();
-                    List<string> zcjcd = new List<string>();
-                    foreach (var k in jcdzs)
-                    {
-                        if (alst.Contains(k) == true)
-                        {
-                            continue;
-                        }
-                        if (llst.Contains(k) == true)
-                        {
-                            continue;
-                        }
-                        zcjcd.Add(k);
-                    }
-                    int zcjcds = zcjcd.Count();
-                    ct2.Text = zcjcds.ToString();
+
+                    ////正常检测点个数
+                    //var jcdzs = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key).GroupBy(p => p.CONFIG_CODE.Substring(0, 19)).Select(p => p.Key).ToList();
+                    //List<string> zcjcd = new List<string>();
+                    //foreach (var k in jcdzs)
+                    //{
+                    //    if (alst.Contains(k) == true)
+                    //    {
+                    //        continue;
+                    //    }
+                    //    if (llst.Contains(k) == true)
+                    //    {
+                    //        continue;
+                    //    }
+                    //    zcjcd.Add(k);
+                    //}
+                    //int zcjcds = zcjcd.Count();
+                    //ct2.Text = zcjcds.ToString();
+                    //在线监测点个数
+                    int zxgs = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && a.STATUS == "1").GroupBy(p => p.CONFIG_CODE.Substring(0, 19)).Select(p => p.Key).Count();
+                    ct2.Text = zxgs.ToString();
+
+                    ct4.Text = (zs - zxgs).ToString();
                 }
             }
             catch (Exception exception)
@@ -463,9 +512,34 @@ namespace SmartKylinApp.View.Query
                 splashScreenManager1.ShowWaitForm();
                 splashScreenManager1.SetWaitFormCaption("请稍后,数据加载中....");     // 标题
                 splashScreenManager1.SetWaitFormDescription("正在更新数据.....");
-                sd = sender;
+
                 Label la = (Label)sender;
                 var key = la.Tag.ToString();
+
+                //getLoad();
+                int count = GlobalHandler.configresp.Count(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
+                if (count > 5000)
+                {
+
+                    if (cfglist == null)
+                    {
+                        splashScreenManager1.CloseWaitForm();
+                        XtraMessageBox.Show("数据量过大，请等待缓存完成!");
+                        return;
+                    }
+                }
+                sd = sender;
+                List<ConfigRecord> listr = new List<ConfigRecord>();
+                if (cfglist == null)
+                {
+                    listr = GlobalHandler.configresp.GetAllList(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
+                    dllist = new List<DataListModel>();
+                }
+                else
+                {
+                    listr = cfglist.Where(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key).ToList();
+                    dllist = new List<DataListModel>();
+                }
                 #region 刷新lable
                 tp = Type.Split(',');
                 string mc = "未选择", keystr;
@@ -478,13 +552,9 @@ namespace SmartKylinApp.View.Query
                         mc = tp[i].Split(':')[0];
                     }
                 }
-                txt_top.Text = mc+"监测点总数:"+la.Text;
+                txt_top.Text = mc + "监测点总数:" + la.Text;
                 txt_top.ForeColor = la.ForeColor;
                 #endregion
-                //getLoad();
-
-                List<ConfigRecord> listr = GlobalHandler.configresp.GetAllList(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
-                dllist = new List<DataListModel>();
                 Smart_Kylin_Runtime cr = new Smart_Kylin_Runtime();
                 string msType = "";
                 foreach (ConfigRecord dtm in listr)
@@ -493,11 +563,11 @@ namespace SmartKylinApp.View.Query
                     msType = lstMsType.Where(p => p.TYPE_KEY == dtm.STATIONID.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
                     if (cr == null)
                     {
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = 0, SAVE_DATE = "", CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE=msType });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = 0, SAVE_DATE = "", CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType, CCBH = dtm.SENSORID.Device.CCBH });
                     }
                     else
                     {
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = cr.CONFIG_VALUE, SAVE_DATE = cr.SAVE_DATE.ToString(), CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = cr.CONFIG_VALUE, SAVE_DATE = cr.SAVE_DATE.ToString(), CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType, CCBH = dtm.SENSORID.Device.CCBH });
                     }
                 }
                 gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
@@ -521,9 +591,24 @@ namespace SmartKylinApp.View.Query
                 splashScreenManager1.SetWaitFormCaption("请稍后,数据加载中....");     // 标题
                 splashScreenManager1.SetWaitFormDescription("正在更新数据.....");
                 //getLoad();
-                sd = sender;
+
                 Label la = (Label)sender;
                 var key = la.Tag.ToString();
+
+                //List < Smart_Kylin_Runtime > listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "1") && (a.LEVEL == "0"||a.LEVEL==null)).ToList();
+                //在线监测点
+                int count = GlobalHandler.configresp.Count(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
+                if (count > 5000)
+                {
+
+                    if (cfglist == null)
+                    {
+                        splashScreenManager1.CloseWaitForm();
+                        XtraMessageBox.Show("数据量过大，请等待缓存完成!");
+                        return;
+                    }
+                }
+                sd = sender;
                 #region 刷新lable
                 tp = Type.Split(',');
                 string mc = "未选择", keystr;
@@ -539,23 +624,29 @@ namespace SmartKylinApp.View.Query
                 txt_top.Text = mc + "监测点在线个数:" + la.Text;
                 txt_top.ForeColor = la.ForeColor;
                 #endregion
-                //List < Smart_Kylin_Runtime > listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "1") && (a.LEVEL == "0"||a.LEVEL==null)).ToList();
-                //在线监测点
                 List<Smart_Kylin_Runtime> listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && a.STATUS == "1").ToList();
                 dllist = new List<DataListModel>();
                 ConfigRecord cr = new ConfigRecord();
                 string msType = "";
                 foreach (Smart_Kylin_Runtime dtm in listr)
                 {
-                    cr = GlobalHandler.configresp.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);                    
+                    if (cfglist == null)
+                    {
+                        cr = GlobalHandler.configresp.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);
+                    }
+                    else
+                    {
+                        cr = cfglist.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);
+                    }
+
                     if (cr == null)
                     {
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = "", MONITORMC = "", MONITORTYPE = "" });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = "", MONITORMC = "", MONITORTYPE = "", CCBH = "" });
                     }
                     else
                     {
                         msType = lstMsType.Where(p => p.TYPE_KEY == cr.STATIONID.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = cr.CONFIG_DESC, MONITORMC = cr.STATIONID.BMMC, MONITORTYPE = msType });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = cr.CONFIG_DESC, MONITORMC = cr.STATIONID.BMMC, MONITORTYPE = msType, CCBH = cr.SENSORID.Device.CCBH });
                     }
                 }
                 gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
@@ -579,9 +670,24 @@ namespace SmartKylinApp.View.Query
                 splashScreenManager1.SetWaitFormCaption("请稍后,数据加载中....");     // 标题
                 splashScreenManager1.SetWaitFormDescription("正在更新数据.....");
                 //getLoad();
-                sd = sender;
+ 
                 Label la = (Label)sender;
                 var key = la.Tag.ToString();
+
+                List<Smart_Kylin_Runtime> listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "0" || a.STATUS == null)).ToList();
+               
+                int count = GlobalHandler.configresp.Count(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
+                if (count > 5000)
+                {
+
+                    if (cfglist == null)
+                    {
+                        splashScreenManager1.CloseWaitForm();
+                        XtraMessageBox.Show("数据量过大，请等待缓存完成!");
+                        return;
+                    }
+                }
+                sd = sender;
                 #region 刷新lable
                 tp = Type.Split(',');
                 string mc = "未选择", keystr;
@@ -597,25 +703,15 @@ namespace SmartKylinApp.View.Query
                 txt_top.Text = mc + "监测点离线个数:" + la.Text;
                 txt_top.ForeColor = la.ForeColor;
                 #endregion
-                List<Smart_Kylin_Runtime> listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "0"|| a.STATUS == null)).ToList();
-                //dllist = new List<DataListModel>();
-                //ConfigRecord cr = new ConfigRecord();
-                //string msType = "";
-                //foreach (Smart_Kylin_Runtime dtm in listr)
-                //{
-                //    cr = GlobalHandler.configresp.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);
-                //    if (cr == null)
-                //    {
-                //        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = "", MONITORMC = "", MONITORTYPE = "" });
-                //    }
-                //    else
-                //    {
-                //        msType = lstMsType.Where(p => p.TYPE_KEY == cr.STATIONID.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
-                //        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = cr.CONFIG_DESC, MONITORMC = cr.STATIONID.BMMC, MONITORTYPE = msType });
-                //    }
-                //}
-
-                List<ConfigRecord> listr1 = GlobalHandler.configresp.GetAllList(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
+                List<ConfigRecord> listr1 = new List<ConfigRecord>();
+                if (cfglist == null)
+                {
+                    listr1 = GlobalHandler.configresp.GetAllList(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
+                }
+                else
+                {
+                    listr1 = cfglist.Where(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key).ToList();
+                }
                 //在线监测点
                 List<Smart_Kylin_Runtime> listzx = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && a.STATUS == "1").ToList();
                 dllist = new List<DataListModel>();
@@ -623,7 +719,7 @@ namespace SmartKylinApp.View.Query
                 string msType1 = "";
                 foreach (ConfigRecord dtm in listr1)
                 {
-                    cr1= listzx.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);
+                    cr1 = listzx.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);
                     //检测项所属监测点在线
                     if (cr1 != null)
                     {
@@ -633,11 +729,11 @@ namespace SmartKylinApp.View.Query
                     msType1 = lstMsType.Where(p => p.TYPE_KEY == dtm.STATIONID.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
                     if (cr1 == null)
                     {
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = 0, SAVE_DATE = "", CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType1 });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = 0, SAVE_DATE = "", CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType1, CCBH = dtm.SENSORID.Device.CCBH });
                     }
                     else
                     {
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = cr1.CONFIG_VALUE, SAVE_DATE = cr1.SAVE_DATE.ToString(), CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType1 });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = cr1.CONFIG_VALUE, SAVE_DATE = cr1.SAVE_DATE.ToString(), CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType1, CCBH = dtm.SENSORID.Device.CCBH });
                     }
                 }
 
@@ -661,10 +757,23 @@ namespace SmartKylinApp.View.Query
                 splashScreenManager1.SetWaitFormCaption("请稍后,数据加载中....");     // 标题
                 splashScreenManager1.SetWaitFormDescription("正在更新数据.....");
                 // getLoad();
-                sd = sender;
+
                 Label la = (Label)sender;
                 gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
                 var key = la.Tag.ToString();
+
+                int count = GlobalHandler.configresp.Count(a => a.CONFIG_CODE.ToString().Substring(6, 2) == key);
+                if (count > 5000)
+                {
+
+                    if (cfglist == null)
+                    {
+                        splashScreenManager1.CloseWaitForm();
+                        XtraMessageBox.Show("数据量过大，请等待缓存完成!");
+                        return;
+                    }
+                }
+                sd = sender;
                 #region 刷新lable
                 tp = Type.Split(',');
                 string mc = "未选择", keystr;
@@ -680,20 +789,28 @@ namespace SmartKylinApp.View.Query
                 txt_top.Text = mc + "监测点报警个数:" + la.Text;
                 txt_top.ForeColor = la.ForeColor;
                 #endregion
-                List<Smart_Kylin_Runtime> listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "1")&& a.LEVEL=="1").ToList();
+                List<Smart_Kylin_Runtime> listr = rlist.Where(a => a.CONFIG_CODE.Substring(6, 2) == key && (a.STATUS == "1") && a.LEVEL == "1").ToList();
                 dllist = new List<DataListModel>();
                 ConfigRecord cr = new ConfigRecord();
                 string msType = "";
                 foreach (Smart_Kylin_Runtime dtm in listr)
                 {
-                    cr = GlobalHandler.configresp.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);
+                    if (cfglist == null)
+                    {
+                        cr = GlobalHandler.configresp.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);
+                    }
+                    else
+                    {
+                        cr = cfglist.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);
+                    }
                     if (cr == null)
                     {
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = "", MONITORMC = "", MONITORTYPE = msType });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = "", MONITORMC = "", MONITORTYPE = msType, CCBH = "" });
                     }
-                    else { 
-                    msType = lstMsType.Where(p => p.TYPE_KEY == cr.STATIONID.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
-                    dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = cr.CONFIG_DESC, MONITORMC = cr.STATIONID.BMMC, MONITORTYPE = msType });
+                    else
+                    {
+                        msType = lstMsType.Where(p => p.TYPE_KEY == cr.STATIONID.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = cr.CONFIG_DESC, MONITORMC = cr.STATIONID.BMMC, MONITORTYPE = msType, CCBH = cr.SENSORID.Device.CCBH });
                     }
                 }
                 gridControl1.DataSource = dllist;
@@ -717,9 +834,13 @@ namespace SmartKylinApp.View.Query
         //关闭或切换窗体计时器关闭
         private void ComprehensiveDisplay_VisibleChanged(object sender, EventArgs e)
         {
-            if(!frist)
-            { 
-            timea.Stop();
+            if (!frist)
+            {
+                timea.Stop();
+                if (thread != null)
+                {
+                    thread.Abort();
+                }
             }
             else
             {
@@ -753,7 +874,7 @@ namespace SmartKylinApp.View.Query
                 fs = new FileStream(saveFileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                 var workbook = new HSSFWorkbook();
                 var sheet = workbook.CreateSheet();
-                string[] names = new string[] { "监测点名称", "监测项名称", "监测项编码", "监测值","保存时间" };
+                string[] names = new string[] { "监测点名称", "监测项名称", "监测项编码", "监测值", "保存时间" };
                 var headerRow = sheet.CreateRow(0);
                 for (int i = 0; i < names.Length; i++)
                 {
@@ -812,6 +933,8 @@ namespace SmartKylinApp.View.Query
             //BarToggleSwitchItem ts = sender as BarToggleSwitchItem;
         }
         private int alertheight = 0;
+        private Thread thread;
+
         private void ShowAlertControl(string msg)
         {
             try
@@ -865,6 +988,30 @@ namespace SmartKylinApp.View.Query
             splashScreenManager1.CloseWaitForm();
             ReClick();
             ShowAlertControl(typeCountInfo);
+        }
+        //列合并自定义方法
+        private void gridView2_CellMerge(object sender, DevExpress.XtraGrid.Views.Grid.CellMergeEventArgs e)
+        {
+            if (gridView2.RowCount > 0)
+            {
+                int rowHandle1 = e.RowHandle1;
+                int rowHandle2 = e.RowHandle2;
+                DataListModel strRow1 = (DataListModel)gridView2.GetRow(rowHandle1);
+                DataListModel strRow2 = (DataListModel)gridView2.GetRow(rowHandle2);
+                string strValue1 = strRow1.CCBH.ToString(); //获取分数列值
+                string strValue2 = strRow2.CCBH.ToString(); //获取分数列值
+                if (strValue1 != strValue2)
+                {
+                    e.Merge = false; //值相同的2个单元格是否要合并在一起
+                    e.Handled = true; //合并单元格是否已经处理过，无需再次进行省缺处理
+                }
+                //if (e.Column.FieldName != "CCBH") //只对分数这一列进行合并,其他列一律不合并
+                //{
+                //    e.Merge = false; //值相同的2个单元格是否要合并在一起
+                //    e.Handled = true; //合并单元格的操作是否已经处理过，不再需要进行省缺处理
+                //}
+               
+            }
         }
     }
 }

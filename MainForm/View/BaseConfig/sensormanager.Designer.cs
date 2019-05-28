@@ -295,31 +295,35 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(972, 24);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(1111, 30);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 600);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 771);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(972, 0);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1111, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 741);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(972, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(1111, 30);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 576);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 741);
             // 
             // layoutControl1
             // 
@@ -332,18 +336,20 @@
             this.layoutControl1.Controls.Add(this.com_sensortype);
             this.layoutControl1.Controls.Add(this.bet_link);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.layoutControl1.Location = new System.Drawing.Point(663, 24);
+            this.layoutControl1.Location = new System.Drawing.Point(758, 30);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(309, 576);
+            this.layoutControl1.Size = new System.Drawing.Size(353, 741);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(156, 180);
+            this.simpleButton2.Location = new System.Drawing.Point(179, 224);
+            this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(141, 22);
+            this.simpleButton2.Size = new System.Drawing.Size(158, 27);
             this.simpleButton2.StyleController = this.layoutControl1;
             this.simpleButton2.TabIndex = 18;
             this.simpleButton2.Text = "取消";
@@ -351,9 +357,10 @@
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(12, 180);
+            this.simpleButton1.Location = new System.Drawing.Point(16, 224);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(140, 22);
+            this.simpleButton1.Size = new System.Drawing.Size(157, 27);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 17;
             this.simpleButton1.Text = "确定";
@@ -361,64 +368,68 @@
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(12, 29);
+            this.txt_name.Location = new System.Drawing.Point(16, 37);
+            this.txt_name.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_name.Name = "txt_name";
             this.txt_name.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.txt_name.Size = new System.Drawing.Size(140, 22);
+            this.txt_name.Size = new System.Drawing.Size(157, 26);
             this.txt_name.StyleController = this.layoutControl1;
             this.txt_name.TabIndex = 8;
             // 
             // txt_sersorcode
             // 
-            this.txt_sersorcode.Location = new System.Drawing.Point(156, 29);
+            this.txt_sersorcode.Location = new System.Drawing.Point(179, 37);
+            this.txt_sersorcode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_sersorcode.Name = "txt_sersorcode";
             this.txt_sersorcode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.txt_sersorcode.Size = new System.Drawing.Size(141, 22);
+            this.txt_sersorcode.Size = new System.Drawing.Size(158, 26);
             this.txt_sersorcode.StyleController = this.layoutControl1;
             this.txt_sersorcode.TabIndex = 9;
             // 
             // date_ccrq
             // 
             this.date_ccrq.EditValue = null;
-            this.date_ccrq.Location = new System.Drawing.Point(156, 72);
+            this.date_ccrq.Location = new System.Drawing.Point(179, 90);
+            this.date_ccrq.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.date_ccrq.Name = "date_ccrq";
             this.date_ccrq.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.date_ccrq.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.date_ccrq.Size = new System.Drawing.Size(141, 20);
+            this.date_ccrq.Size = new System.Drawing.Size(158, 24);
             this.date_ccrq.StyleController = this.layoutControl1;
             this.date_ccrq.TabIndex = 13;
             // 
             // txt_sensorbz
             // 
-            this.txt_sensorbz.Location = new System.Drawing.Point(12, 113);
+            this.txt_sensorbz.Location = new System.Drawing.Point(16, 141);
+            this.txt_sensorbz.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_sensorbz.Name = "txt_sensorbz";
-            this.txt_sensorbz.Size = new System.Drawing.Size(285, 20);
+            this.txt_sensorbz.Size = new System.Drawing.Size(321, 24);
             this.txt_sensorbz.StyleController = this.layoutControl1;
             this.txt_sensorbz.TabIndex = 4;
             // 
             // com_sensortype
             // 
-            this.com_sensortype.Location = new System.Drawing.Point(12, 72);
-            this.com_sensortype.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.com_sensortype.Location = new System.Drawing.Point(16, 90);
             this.com_sensortype.MenuManager = this.barManager1;
             this.com_sensortype.Name = "com_sensortype";
             this.com_sensortype.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.com_sensortype.Size = new System.Drawing.Size(140, 20);
+            this.com_sensortype.Size = new System.Drawing.Size(157, 24);
             this.com_sensortype.StyleController = this.layoutControl1;
             this.com_sensortype.TabIndex = 19;
             // 
             // bet_link
             // 
-            this.bet_link.Location = new System.Drawing.Point(12, 154);
+            this.bet_link.Location = new System.Drawing.Point(16, 192);
+            this.bet_link.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bet_link.Name = "bet_link";
             this.bet_link.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.bet_link.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.bet_link.Properties.ReadOnly = true;
-            this.bet_link.Size = new System.Drawing.Size(285, 22);
+            this.bet_link.Size = new System.Drawing.Size(321, 26);
             this.bet_link.StyleController = this.layoutControl1;
             this.bet_link.TabIndex = 37;
             this.bet_link.Click += new System.EventHandler(this.bet_cgqbm_Click);
@@ -439,7 +450,7 @@
             this.layoutControlItem64});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(309, 576);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(353, 741);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem7
@@ -448,57 +459,57 @@
             this.layoutControlItem7.CustomizationFormText = "设备名称";
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(144, 43);
+            this.layoutControlItem7.Size = new System.Drawing.Size(163, 53);
             this.layoutControlItem7.Text = "传感器名称(*)";
             this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(77, 14);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(95, 18);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 194);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 241);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(289, 362);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(327, 474);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.txt_sersorcode;
             this.layoutControlItem8.CustomizationFormText = "上报频率";
-            this.layoutControlItem8.Location = new System.Drawing.Point(144, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(163, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(145, 43);
+            this.layoutControlItem8.Size = new System.Drawing.Size(164, 53);
             this.layoutControlItem8.Text = "传感器编码(*)";
             this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(77, 14);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(95, 18);
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.date_ccrq;
             this.layoutControlItem15.CustomizationFormText = "购买日期";
-            this.layoutControlItem15.Location = new System.Drawing.Point(144, 43);
+            this.layoutControlItem15.Location = new System.Drawing.Point(163, 53);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(145, 41);
+            this.layoutControlItem15.Size = new System.Drawing.Size(164, 51);
             this.layoutControlItem15.Text = "出厂日期";
             this.layoutControlItem15.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(77, 14);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(95, 18);
             this.layoutControlItem15.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.simpleButton2;
-            this.layoutControlItem3.Location = new System.Drawing.Point(144, 168);
+            this.layoutControlItem3.Location = new System.Drawing.Point(163, 208);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(145, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(164, 33);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.simpleButton1;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 208);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(144, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(163, 33);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -506,34 +517,34 @@
             // 
             this.layoutControlItem6.Control = this.com_sensortype;
             this.layoutControlItem6.CustomizationFormText = "采集原理分类";
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 43);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 53);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(144, 41);
+            this.layoutControlItem6.Size = new System.Drawing.Size(163, 51);
             this.layoutControlItem6.Text = "采集原理分类";
             this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(77, 14);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(95, 18);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.txt_sensorbz;
             this.layoutControlItem10.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 84);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 104);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(289, 41);
+            this.layoutControlItem10.Size = new System.Drawing.Size(327, 51);
             this.layoutControlItem10.Text = "备注";
             this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(77, 14);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(95, 18);
             // 
             // layoutControlItem64
             // 
             this.layoutControlItem64.Control = this.bet_link;
             this.layoutControlItem64.CustomizationFormText = "传感器编码(*)";
-            this.layoutControlItem64.Location = new System.Drawing.Point(0, 125);
+            this.layoutControlItem64.Location = new System.Drawing.Point(0, 155);
             this.layoutControlItem64.Name = "layoutControlItem64";
-            this.layoutControlItem64.Size = new System.Drawing.Size(289, 43);
+            this.layoutControlItem64.Size = new System.Drawing.Size(327, 53);
             this.layoutControlItem64.Text = "modbus配置";
             this.layoutControlItem64.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem64.TextSize = new System.Drawing.Size(77, 14);
+            this.layoutControlItem64.TextSize = new System.Drawing.Size(95, 18);
             // 
             // layoutControl2
             // 
@@ -541,17 +552,18 @@
             this.layoutControl2.Controls.Add(this.gridControl1);
             this.layoutControl2.Controls.Add(this.tree_mstype);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.layoutControl2.Location = new System.Drawing.Point(0, 24);
+            this.layoutControl2.Location = new System.Drawing.Point(0, 30);
+            this.layoutControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(233, 576);
+            this.layoutControl2.Size = new System.Drawing.Size(266, 741);
             this.layoutControl2.TabIndex = 5;
             this.layoutControl2.Text = "layoutControl2";
             // 
             // searchControl1
             // 
-            this.searchControl1.Location = new System.Drawing.Point(12, 12);
-            this.searchControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.searchControl1.Location = new System.Drawing.Point(16, 16);
+            this.searchControl1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.searchControl1.MenuManager = this.barManager1;
             this.searchControl1.Name = "searchControl1";
             this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -559,7 +571,7 @@
             new DevExpress.XtraEditors.Repository.SearchButton()});
             this.searchControl1.Properties.NullValuePrompt = "请输入设备名称...";
             this.searchControl1.Properties.ShowDefaultButtonsMode = DevExpress.XtraEditors.Repository.ShowDefaultButtonsMode.Always;
-            this.searchControl1.Size = new System.Drawing.Size(209, 20);
+            this.searchControl1.Size = new System.Drawing.Size(234, 24);
             this.searchControl1.StyleController = this.layoutControl2;
             this.searchControl1.TabIndex = 20;
             this.searchControl1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.searchControl1_ButtonClick);
@@ -567,11 +579,13 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(12, 77);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.gridControl1.Location = new System.Drawing.Point(16, 97);
             this.gridControl1.MainView = this.gridView2;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(209, 487);
+            this.gridControl1.Size = new System.Drawing.Size(234, 628);
             this.gridControl1.TabIndex = 19;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -605,14 +619,15 @@
             // tree_mstype
             // 
             this.tree_mstype.EditValue = "";
-            this.tree_mstype.Location = new System.Drawing.Point(12, 53);
+            this.tree_mstype.Location = new System.Drawing.Point(16, 67);
+            this.tree_mstype.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tree_mstype.Name = "tree_mstype";
             this.tree_mstype.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tree_mstype.Properties.DisplayMember = "Name";
             this.tree_mstype.Properties.TreeList = this.treeList2;
             this.tree_mstype.Properties.ValueMember = "ID";
-            this.tree_mstype.Size = new System.Drawing.Size(209, 20);
+            this.tree_mstype.Size = new System.Drawing.Size(234, 24);
             this.tree_mstype.StyleController = this.layoutControl2;
             this.tree_mstype.TabIndex = 18;
             this.tree_mstype.EditValueChanged += new System.EventHandler(this.tree_mstype_EditValueChanged);
@@ -653,26 +668,26 @@
             this.layoutControlItem9});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(233, 576);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(266, 741);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.tree_mstype;
             this.layoutControlItem4.CustomizationFormText = "行业类型";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 30);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(213, 41);
+            this.layoutControlItem4.Size = new System.Drawing.Size(240, 51);
             this.layoutControlItem4.Text = "行业类型";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(48, 14);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(60, 18);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 65);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 81);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(213, 491);
+            this.layoutControlItem1.Size = new System.Drawing.Size(240, 634);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -681,7 +696,7 @@
             this.layoutControlItem9.Control = this.searchControl1;
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(213, 24);
+            this.layoutControlItem9.Size = new System.Drawing.Size(240, 30);
             this.layoutControlItem9.Text = "设备名称";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
@@ -690,20 +705,23 @@
             // 
             this.layoutControl3.Controls.Add(this.grid_agreement);
             this.layoutControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl3.Location = new System.Drawing.Point(233, 24);
+            this.layoutControl3.Location = new System.Drawing.Point(266, 30);
+            this.layoutControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup3;
-            this.layoutControl3.Size = new System.Drawing.Size(430, 576);
+            this.layoutControl3.Size = new System.Drawing.Size(492, 741);
             this.layoutControl3.TabIndex = 6;
             this.layoutControl3.Text = "layoutControl3";
             // 
             // grid_agreement
             // 
-            this.grid_agreement.Location = new System.Drawing.Point(12, 12);
+            this.grid_agreement.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.grid_agreement.Location = new System.Drawing.Point(16, 16);
             this.grid_agreement.MainView = this.gridView1;
+            this.grid_agreement.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.grid_agreement.MenuManager = this.barManager1;
             this.grid_agreement.Name = "grid_agreement";
-            this.grid_agreement.Size = new System.Drawing.Size(406, 552);
+            this.grid_agreement.Size = new System.Drawing.Size(460, 709);
             this.grid_agreement.TabIndex = 6;
             this.grid_agreement.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -777,7 +795,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(430, 576);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(492, 741);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem2
@@ -785,7 +803,7 @@
             this.layoutControlItem2.Control = this.grid_agreement;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(410, 556);
+            this.layoutControlItem2.Size = new System.Drawing.Size(466, 715);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -809,7 +827,7 @@
             // 
             // sensormanager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl3);
             this.Controls.Add(this.layoutControl2);
@@ -818,7 +836,8 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Size = new System.Drawing.Size(972, 600);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Size = new System.Drawing.Size(1111, 771);
             this.Load += new System.EventHandler(this.sensormanager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();

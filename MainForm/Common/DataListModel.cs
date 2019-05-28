@@ -41,5 +41,6 @@ namespace SmartKylinApp.Common
         /// 检测项类型
         /// </summary>
         public virtual string MONITORTYPE{ get; set; }
+        public string CCBH { get; internal set; }
     }
 }

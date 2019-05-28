@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComprehensiveDisplay));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,6 +46,7 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CCBH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CONFIG_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -144,7 +145,7 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(464, 692);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(463, 692);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // gridControl1
@@ -154,7 +155,7 @@
             this.gridControl1.MainView = this.gridView2;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(0);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(732, 629);
+            this.gridControl1.Size = new System.Drawing.Size(733, 629);
             this.gridControl1.TabIndex = 8;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -166,6 +167,7 @@
             this.gridColumn7,
             this.gridColumn8,
             this.gridColumn5,
+            this.CCBH,
             this.CONFIG_CODE,
             this.gridColumn4,
             this.gridColumn6,
@@ -178,6 +180,7 @@
             this.gridView2.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn5, DevExpress.Data.ColumnSortOrder.Ascending),
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.CONFIG_CODE, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.gridView2.CellMerge += new DevExpress.XtraGrid.Views.Grid.CellMergeEventHandler(this.gridView2_CellMerge);
             this.gridView2.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridView2_CustomDrawRowIndicator);
             // 
             // gridColumn10
@@ -196,6 +199,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.OptionsColumn.AllowFocus = false;
+            this.gridColumn7.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 1;
             this.gridColumn7.Width = 118;
@@ -221,6 +225,17 @@
             this.gridColumn5.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.True;
             this.gridColumn5.Width = 121;
             // 
+            // CCBH
+            // 
+            this.CCBH.Caption = "出厂编号";
+            this.CCBH.FieldName = "CCBH";
+            this.CCBH.Name = "CCBH";
+            this.CCBH.OptionsColumn.AllowEdit = false;
+            this.CCBH.OptionsColumn.AllowFocus = false;
+            this.CCBH.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
+            this.CCBH.Visible = true;
+            this.CCBH.VisibleIndex = 3;
+            // 
             // CONFIG_CODE
             // 
             this.CONFIG_CODE.Caption = "监测项编码";
@@ -229,7 +244,7 @@
             this.CONFIG_CODE.OptionsColumn.AllowEdit = false;
             this.CONFIG_CODE.OptionsColumn.AllowFocus = false;
             this.CONFIG_CODE.Visible = true;
-            this.CONFIG_CODE.VisibleIndex = 3;
+            this.CONFIG_CODE.VisibleIndex = 4;
             this.CONFIG_CODE.Width = 193;
             // 
             // gridColumn4
@@ -241,7 +256,7 @@
             this.gridColumn4.OptionsColumn.AllowFocus = false;
             this.gridColumn4.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
+            this.gridColumn4.VisibleIndex = 5;
             this.gridColumn4.Width = 69;
             // 
             // gridColumn6
@@ -260,7 +275,7 @@
             this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.OptionsColumn.AllowFocus = false;
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 5;
+            this.gridColumn9.VisibleIndex = 6;
             this.gridColumn9.Width = 127;
             // 
             // splashScreenManager1
@@ -330,9 +345,9 @@
             this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
             this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
             this.barButtonItem1.Name = "barButtonItem1";
-            toolTipItem1.Text = "刷新数据";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.barButtonItem1.SuperTip = superToolTip1;
+            toolTipItem3.Text = "刷新数据";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.barButtonItem1.SuperTip = superToolTip3;
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barButtonItem2
@@ -342,9 +357,9 @@
             this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
             this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
             this.barButtonItem2.Name = "barButtonItem2";
-            toolTipItem2.Text = "导出数据";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.barButtonItem2.SuperTip = superToolTip2;
+            toolTipItem4.Text = "导出数据";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.barButtonItem2.SuperTip = superToolTip4;
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barToggleSwitchItem1
@@ -434,7 +449,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.layoutControl1);
             this.splitContainer1.Size = new System.Drawing.Size(1232, 692);
-            this.splitContainer1.SplitterDistance = 464;
+            this.splitContainer1.SplitterDistance = 463;
             this.splitContainer1.TabIndex = 6;
             // 
             // layoutControl1
@@ -445,7 +460,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(764, 692);
+            this.layoutControl1.Size = new System.Drawing.Size(765, 692);
             this.layoutControl1.TabIndex = 9;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -453,7 +468,7 @@
             // 
             this.txt_top.Location = new System.Drawing.Point(16, 16);
             this.txt_top.Name = "txt_top";
-            this.txt_top.Size = new System.Drawing.Size(732, 25);
+            this.txt_top.Size = new System.Drawing.Size(733, 25);
             this.txt_top.TabIndex = 4;
             this.txt_top.Text = "未选择";
             // 
@@ -467,7 +482,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(764, 692);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(765, 692);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -475,7 +490,7 @@
             this.layoutControlItem1.Control = this.txt_top;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(738, 31);
+            this.layoutControlItem1.Size = new System.Drawing.Size(739, 31);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -484,7 +499,7 @@
             this.layoutControlItem2.Control = this.gridControl1;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 31);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(738, 635);
+            this.layoutControlItem2.Size = new System.Drawing.Size(739, 635);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -559,5 +574,6 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraGrid.Columns.GridColumn CCBH;
     }
 }
