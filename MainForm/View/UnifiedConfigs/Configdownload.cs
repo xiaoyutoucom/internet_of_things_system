@@ -194,13 +194,13 @@ namespace SmartKylinApp.View.BaseConfig
                             if (da.Count == 0|| datas1[i].CCBH.ToString()=="")
                             {
                                 IRow row2;
-                                if (sheet1.GetRow( 1 + cot) != null)
+                                if (sheet1.GetRow( 2 + cot) != null)
                                 {
-                                    row2 = sheet1.GetRow(1 + cot);
+                                    row2 = sheet1.GetRow(2 + cot);
                                 }
                                 else
                                 {
-                                    row2 = sheet1.CreateRow( cot + 1);
+                                    row2 = sheet1.CreateRow( cot + 2);
                                 }
                                 row2.CreateCell(3).SetCellValue(datas1[i].SBBM);
                                 row2.CreateCell(2).SetCellValue(datas1[i].SBMC);
