@@ -156,8 +156,8 @@ namespace SmartKylinApp.Common
             catch (Exception ex)
             {
                 _log.Error("验证Redis信息出错，出错提示：" + ex.ToString());
-                //RedisState = false;
-                RedisState = true;
+                RedisState = false;
+                //RedisState = true;
             }
         }
 
