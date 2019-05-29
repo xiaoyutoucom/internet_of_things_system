@@ -838,16 +838,7 @@ namespace SmartKylinApp.View.Query
             if (!frist)
             {
                 timea.Stop();
-                if (thread != null)
-                {
-                    //重启软件关闭线程
-                    thread.Abort();
-                    while (thread.ThreadState != ThreadState.Aborted)
-                    {
-                        //当调用Abort方法后，如果thread线程的状态不为Aborted，主线程就一直在这里做循环，直到thread线程的状态变为Aborted为止  
-                        Thread.Sleep(100);
-                    }
-                }
+               
             }
             else
             {
