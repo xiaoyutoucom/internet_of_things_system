@@ -839,8 +839,8 @@ namespace SmartKylinApp.View.Query
         {            
             if (!frist)
             {
-                timea.Stop();
-               
+                barToggleSwitchItem2.Checked = true;
+                //timea.Stop();
             }
             else
             {
