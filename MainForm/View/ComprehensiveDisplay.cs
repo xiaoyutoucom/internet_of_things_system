@@ -156,6 +156,7 @@ namespace SmartKylinApp.View.Query
 
                 //异步刷新数据
                 thread = new Thread((() => ConfigTask()));
+                thread.IsBackground = true;
                 thread.Start();
 
                 typeCountInfo = "";
@@ -406,6 +407,7 @@ namespace SmartKylinApp.View.Query
                 }
               
                 thread = new Thread((() => ConfigTask()));
+                thread.IsBackground = true;
                 thread.Start();
                 typeCountInfo = "";
                 barDate.Caption = "最后更新时间：" + DateTime.Now.ToLongTimeString().ToString();
