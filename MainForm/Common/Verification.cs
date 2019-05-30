@@ -73,9 +73,12 @@ namespace SmartKylinApp.Common
             //cwq,2019-04-15,推送服务注释
             //VerifSignalr();
             //if (upProgress != null) upProgress(20);
-            VerifMongo();
+            //VerifMongo();
             if (upProgress != null) upProgress(20);
-            VerifRedis();
+            //VerifRedis();
+
+            MongoState = true;
+            RedisState = true;
         }
 
         public enum DbState
@@ -161,7 +164,7 @@ namespace SmartKylinApp.Common
             }
         }
 
-        private void VerifMongo()
+        public void VerifMongo()
         {
             try
             {

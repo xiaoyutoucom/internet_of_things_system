@@ -63,10 +63,14 @@ namespace Mongodb
         }
         public MongoDBRepository(string connectionString)
         {
+            try { 
             var client = new MongoClient(connectionString);
             var databaseName = new MongoUrl(connectionString).DatabaseName;
             _database = client.GetDatabase(databaseName);
             _collection = _database.GetCollection<T>(typeof(T).Name);
+            }
+            catch
+            { }
         }
 
         public MongoDBRepository(IMongoClient client)

@@ -769,8 +769,8 @@ D:\公司项目\码云物联网项目\SmartKylinData\bin\Debug\System.Memory.xml
 D:\公司项目\码云物联网项目\SmartKylinData\bin\Debug\System.Numerics.Vectors.xml
 D:\公司项目\码云物联网项目\SmartKylinData\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\公司项目\码云物联网项目\SmartKylinData\bin\Debug\TimeZoneConverter.xml
+D:\公司项目\码云物联网项目\SmartKylinData\obj\Debug\SmartKylinData.csprojAssemblyReference.cache
 D:\公司项目\码云物联网项目\SmartKylinData\obj\Debug\SmartKylinData.csproj.CoreCompileInputs.cache
 D:\公司项目\码云物联网项目\SmartKylinData\obj\Debug\SmartKylinData.csproj.CopyComplete
 D:\公司项目\码云物联网项目\SmartKylinData\obj\Debug\SmartKylinData.dll
 D:\公司项目\码云物联网项目\SmartKylinData\obj\Debug\SmartKylinData.pdb
-D:\公司项目\码云物联网项目\SmartKylinData\obj\Debug\SmartKylinData.csprojAssemblyReference.cache

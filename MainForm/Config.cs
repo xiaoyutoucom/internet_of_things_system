@@ -50,23 +50,23 @@ namespace SmartKylinApp
                 error_provider.SetError(txt_signalr, "数据接收服务连接错误");
             }
 
-            //redis验证
-            state_redis.Visible = verif.RedisState;
-            if (!state_redis.Visible)
-            {
+            ////redis验证
+            //state_redis.Visible = verif.RedisState;
+            //if (!state_redis.Visible)
+            //{
 
-                error_provider.SetError(txt_redis, "redis数据库连接错误");
-            }
+            //    error_provider.SetError(txt_redis, "redis数据库连接错误");
+            //}
 
-            //mongo验证
-            state_mongodb.Visible = verif.MongoState;
-            if (!state_mongodb.Visible)
-            {
+            ////mongo验证
+            //state_mongodb.Visible = verif.MongoState;
+            //if (!state_mongodb.Visible)
+            //{
        
-                error_provider.SetError(txt_mongodb, "MongoDB数据库连接错误");
-            }
+            //    error_provider.SetError(txt_mongodb, "MongoDB数据库连接错误");
+            //}
             //|| !state_signalr.Visible
-            if (!state_db.Visible|| !state_redis.Visible|| !state_mongodb.Visible)
+            if (!state_db.Visible)//|| !state_redis.Visible|| !state_mongodb.Visible
             {
                 btn_ok.Enabled = false;
             }
