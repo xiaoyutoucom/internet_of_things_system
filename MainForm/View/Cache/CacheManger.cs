@@ -15,6 +15,8 @@ using Robin.Json;
 using SmartKylinApp.Common;
 using SmartKylinData.IOTModel;
 using StackExchange.Redis;
+using SmartKylinApp.View.BaseConfig;
+using log4net;
 
 namespace SmartKylinApp.View.Cache
 {
@@ -50,6 +52,7 @@ namespace SmartKylinApp.View.Cache
 
         private IDatabase _db;
         private bool isConn = false;
+        private ILog _log = LogManager.GetLogger("CacheManger");
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             //连接缓存服务器
@@ -98,12 +101,12 @@ namespace SmartKylinApp.View.Cache
                 XtraMessageBox.Show("服务未连接，请点击连接按钮");
                 return;
             }
-            var box = new XtraMessageBoxArgs();
-            box.Caption = "提示";
-            box.Text = "确定要更新吗？";
-            box.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-            box.Showing += ShowButton.Box_Showing;
-            if (XtraMessageBox.Show(box) != DialogResult.OK)
+            //删除数据
+            DelectBox dbox = new DelectBox();
+            dbox.StartPosition = FormStartPosition.CenterScreen;
+            dbox.ShowDialog();
+            bool IfDelect = dbox.IfDelect;
+            if (!IfDelect)
             {
                 return;
             }
@@ -133,26 +136,31 @@ namespace SmartKylinApp.View.Cache
             }
             catch (Exception exception)
             {
-                XtraMessageBox.Show($"缓存更新失败{exception}");
+                XtraMessageBox.Show($"缓存更新失败");
+                _log.Error("缓存更新失败，出错提示：" + exception.ToString());
             }
 
           
         }
-
+        private void UpOPC()
+        {
+            //var variablelist = configList.Where(a => a.VARIABLE_NAME != null&&a.SENSORID==null);
+            //全部数据，说明：没有变量名称的配置信息，如OPC控制
+            var opclist = GlobalHandler.configresp.GetAllList(a => a.VARIABLE_NAME != null && a.VARIABLE_NAME != "").ToList();
+            opclist.ForEach(a =>
+            {
+                a.TAGID = null;
+                a.STATIONID = null;
+                a.SENSORID = null;//上一个没注释
+            });
+            //opc
+            _db.StringSet($"Default:Kylin:Config", JsonConvert.SerializeObject(opclist));
+        }
         private void Updata()
         {
             //更新ConfigSensor，说明：没有变量名称的配置信息，如OPC控制
             var configList = GlobalHandler.configresp.GetAllList();
-
-            var variablelist = configList.Where(a => a.VARIABLE_NAME != null&& a.VARIABLE_NAME != "").ToList();
-            variablelist.ForEach(a =>
-            {
-                a.TAGID = null;
-                a.STATIONID = null;
-                //a.SENSORID = null;
-            });
-            //opc
-            _db.StringSet($"Default:Kylin:Config", JsonConvert.SerializeObject(variablelist));
+            UpOPC();
             //var list = variablelist.Select(b => new
             //{
             //    Id = b.Id,
@@ -201,16 +209,7 @@ namespace SmartKylinApp.View.Cache
             //更新ConfigSensor，说明：没有变量名称的配置信息，如OPC控制
             var configList = GlobalHandler.configresp.GetAllList(a=>a.STATIONID.STATIONTYPE.StartsWith(type));
 
-            //var variablelist = configList.Where(a => a.VARIABLE_NAME != null&&a.SENSORID==null);
-            var variablelist = configList.Where(a => a.VARIABLE_NAME != null && a.VARIABLE_NAME != "").ToList();
-            variablelist.ForEach(a =>
-            {
-                a.TAGID = null;
-                a.STATIONID = null;
-                //a.SENSORID = null;
-            });
-            //opc
-            _db.StringSet($"Default:Kylin:Config", JsonConvert.SerializeObject(variablelist));
+            UpOPC();
 
             //更新其他的
             var configs = configList.Where(a => a.SENSORID != null).ToList();
@@ -246,49 +245,15 @@ namespace SmartKylinApp.View.Cache
 
         private void CacheManger_Load(object sender, EventArgs e)
         {
-            var list = new List<MstypeModel>
-            {
-                new MstypeModel()
-                {
-                    Key = "01",
-                    Value = "排水"
-                },
-                new MstypeModel()
-                {
-                    Key = "02",
-                    Value = "燃气"
-                },
-                new MstypeModel()
-                {
-                    Key = "03",
-                    Value = "供水"
-                },
-                new MstypeModel()
-                {
-                    Key = "05",
-                    Value = "路灯"
-                },
-                new MstypeModel()
-                {
-                    Key = "06",
-                    Value = "环保"
-                },
-                new MstypeModel()
-                {
-                    Key = "97",
-                    Value = "管廊"
-                },
-                new MstypeModel()
-                {
-                    Key = "98",
-                    Value = "农村"
-                },
-                new MstypeModel()
-                {
-                    Key = "99",
-                    Value = "其他"
-                }
-            };
+
+            var list = GlobalHandler.mstyperesp.GetAllList(a => a.TYPE_KEY.Length == 2).GroupBy(a => a.TYPE_KEY).Select(a =>
+                   new MstypeModel()
+                   {
+                       Key = a.Key,
+                       Value = a.FirstOrDefault()?.TYPE_NAME
+
+                   }).ToList();
+  
             comboBox2.ValueMember = "Key";
             comboBox2.DisplayMember = "Value";
             comboBox2.DataSource = list;
@@ -389,7 +354,15 @@ namespace SmartKylinApp.View.Cache
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             //保存修改后缓存
-
+            //确认权限
+            DelectBox dbox = new DelectBox();
+            dbox.StartPosition = FormStartPosition.CenterScreen;
+            dbox.ShowDialog();
+            bool IfDelect = dbox.IfDelect;
+            if (!IfDelect)
+            {
+                return;
+            }
             if (!isConn)
             {
                 XtraMessageBox.Show("缓存服务器连接失败，请检查连接字符串是否正确");
@@ -432,6 +405,7 @@ namespace SmartKylinApp.View.Cache
             catch (Exception e)
             {
                 XtraMessageBox.Show("更新失败");
+                _log.Error("更新失败，出错提示：" + e.ToString());
             }
         }
     }

@@ -149,16 +149,15 @@ namespace SmartKylinApp.View.BaseConfig
                 {
                     var id = (int)gridView1.GetRowCellValue(gridView1.GetSelectedRows()[0], "Id");
                     //删除数据
-                    var box = new XtraMessageBoxArgs();
-                    box.Caption = "提示";
-                    box.Text = "确定要删除吗？";
-                    box.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                    box.Showing += ShowButton.Box_Showing;
-                    if (XtraMessageBox.Show(box) != DialogResult.OK)
+                    DelectBox dbox = new DelectBox();
+                    dbox.StartPosition = FormStartPosition.CenterScreen;
+                    dbox.ShowDialog();
+                    bool IfDelect = dbox.IfDelect;
+                    if (!IfDelect)
                     {
                         return;
                     }
-                    //GlobalHandler.agreeresp.Delete(id);
+                    GlobalHandler.agreeresp.Delete(id);
                     var index = gridView1.GetSelectedRows();
                     index.Each(a => GlobalHandler.agreeresp.Delete((int)(gridView1.GetRowCellValue(a, "Id"))));
                     GetData();
@@ -167,7 +166,7 @@ namespace SmartKylinApp.View.BaseConfig
             catch (Exception exception)
             {
                 XtraMessageBox.Show("删除数据失败");
-                _log.Error("删除数据失败，出错提示：" + e.ToString());
+                _log.Error("删除数据失败，出错提示：" + exception.ToString());
             }
            
         }

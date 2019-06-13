@@ -82,7 +82,7 @@ namespace SmartKylinApp.View.UnifiedConfigs
         {
             try { 
             if (mstype == null) return;
-            var List = GlobalHandler.sensorresp.GetAllList(a => a.CGQBM.StartsWith(mstype)).ToList();
+            var List = GlobalHandler.sensorresp.GetAllList(a => a.Device.Id.ToString() == mstype).ToList();
             gridControl1.DataSource = List;
             }
             catch (Exception e)
@@ -127,7 +127,7 @@ namespace SmartKylinApp.View.UnifiedConfigs
             //获取选中状态
             if (gridView2.GetSelectedRows().IsNotEmpty())
             {
-                var type = gridView2.GetRowCellValue(gridView2.GetSelectedRows()[0], "CCBH").ToString();
+                var type = gridView2.GetRowCellValue(gridView2.GetSelectedRows()[0], "Id").ToString();
                 GetData(type);
             }
         }

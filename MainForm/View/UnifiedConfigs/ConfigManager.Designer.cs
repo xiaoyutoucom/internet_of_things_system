@@ -1243,7 +1243,7 @@
             this.layoutControlItem38,
             this.layoutControlItem41,
             this.layoutControlItem44});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, -1036);
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "Root";
             this.layoutControlGroup3.Size = new System.Drawing.Size(348, 1763);
             this.layoutControlGroup3.TextVisible = false;
@@ -1262,7 +1262,7 @@
             // tree_jcxlx
             // 
             this.tree_jcxlx.EditValue = "";
-            this.tree_jcxlx.Location = new System.Drawing.Point(16, -999);
+            this.tree_jcxlx.Location = new System.Drawing.Point(16, 37);
             this.tree_jcxlx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tree_jcxlx.Name = "tree_jcxlx";
             this.tree_jcxlx.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1370,7 +1370,7 @@
             // 
             // bet_cgqbm
             // 
-            this.bet_cgqbm.Location = new System.Drawing.Point(16, -791);
+            this.bet_cgqbm.Location = new System.Drawing.Point(16, 245);
             this.bet_cgqbm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bet_cgqbm.MenuManager = this.barManager1;
             this.bet_cgqbm.Name = "bet_cgqbm";
@@ -1386,7 +1386,7 @@
             // flyoutPanel1
             // 
             this.flyoutPanel1.Controls.Add(this.flyoutPanelControl1);
-            this.flyoutPanel1.Location = new System.Drawing.Point(16, 710);
+            this.flyoutPanel1.Location = new System.Drawing.Point(16, 1746);
             this.flyoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flyoutPanel1.Name = "flyoutPanel1";
             this.flyoutPanel1.Size = new System.Drawing.Size(316, 1);
@@ -1404,7 +1404,7 @@
             // 
             // rdo_yj
             // 
-            this.rdo_yj.Location = new System.Drawing.Point(177, -534);
+            this.rdo_yj.Location = new System.Drawing.Point(177, 502);
             this.rdo_yj.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdo_yj.MenuManager = this.barManager1;
             this.rdo_yj.Name = "rdo_yj";
@@ -1418,7 +1418,7 @@
             // 
             // txt_bmid
             // 
-            this.txt_bmid.Location = new System.Drawing.Point(16, -895);
+            this.txt_bmid.Location = new System.Drawing.Point(16, 141);
             this.txt_bmid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_bmid.Name = "txt_bmid";
             this.txt_bmid.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
@@ -1429,7 +1429,7 @@
             // 
             // txt_bmms
             // 
-            this.txt_bmms.Location = new System.Drawing.Point(16, -948);
+            this.txt_bmms.Location = new System.Drawing.Point(16, 88);
             this.txt_bmms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_bmms.Name = "txt_bmms";
             this.txt_bmms.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
@@ -1439,7 +1439,7 @@
             // 
             // txt_MAX_VALUE
             // 
-            this.txt_MAX_VALUE.Location = new System.Drawing.Point(16, -687);
+            this.txt_MAX_VALUE.Location = new System.Drawing.Point(16, 349);
             this.txt_MAX_VALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_MAX_VALUE.Name = "txt_MAX_VALUE";
             this.txt_MAX_VALUE.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1450,7 +1450,7 @@
             // 
             // txt_blms
             // 
-            this.txt_blms.Location = new System.Drawing.Point(177, -636);
+            this.txt_blms.Location = new System.Drawing.Point(177, 400);
             this.txt_blms.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_blms.Name = "txt_blms";
             this.txt_blms.Size = new System.Drawing.Size(155, 24);
@@ -1459,7 +1459,7 @@
             // 
             // txt_bmx
             // 
-            this.txt_bmx.Location = new System.Drawing.Point(16, 392);
+            this.txt_bmx.Location = new System.Drawing.Point(16, 1428);
             this.txt_bmx.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_bmx.Name = "txt_bmx";
             this.txt_bmx.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1470,7 +1470,7 @@
             // 
             // txt_bmy
             // 
-            this.txt_bmy.Location = new System.Drawing.Point(177, 392);
+            this.txt_bmy.Location = new System.Drawing.Point(177, 1428);
             this.txt_bmy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_bmy.Name = "txt_bmy";
             this.txt_bmy.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1481,7 +1481,7 @@
             // 
             // txt_UNITS
             // 
-            this.txt_UNITS.Location = new System.Drawing.Point(16, -842);
+            this.txt_UNITS.Location = new System.Drawing.Point(16, 194);
             this.txt_UNITS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_UNITS.Name = "txt_UNITS";
             this.txt_UNITS.Size = new System.Drawing.Size(155, 24);
@@ -1490,7 +1490,7 @@
             // 
             // txt_MIN_VALUE
             // 
-            this.txt_MIN_VALUE.Location = new System.Drawing.Point(177, -687);
+            this.txt_MIN_VALUE.Location = new System.Drawing.Point(177, 349);
             this.txt_MIN_VALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_MIN_VALUE.Name = "txt_MIN_VALUE";
             this.txt_MIN_VALUE.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1501,7 +1501,7 @@
             // 
             // txt_MAX_MAX_VALUE
             // 
-            this.txt_MAX_MAX_VALUE.Location = new System.Drawing.Point(16, 443);
+            this.txt_MAX_MAX_VALUE.Location = new System.Drawing.Point(16, 1479);
             this.txt_MAX_MAX_VALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_MAX_MAX_VALUE.Name = "txt_MAX_MAX_VALUE";
             this.txt_MAX_MAX_VALUE.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1512,7 +1512,7 @@
             // 
             // txt_L1_END
             // 
-            this.txt_L1_END.Location = new System.Drawing.Point(177, -479);
+            this.txt_L1_END.Location = new System.Drawing.Point(177, 557);
             this.txt_L1_END.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L1_END.Name = "txt_L1_END";
             this.txt_L1_END.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1523,7 +1523,7 @@
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(16, 677);
+            this.simpleButton2.Location = new System.Drawing.Point(16, 1713);
             this.simpleButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(155, 27);
@@ -1534,7 +1534,7 @@
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Location = new System.Drawing.Point(177, 677);
+            this.simpleButton3.Location = new System.Drawing.Point(177, 1713);
             this.simpleButton3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(155, 27);
@@ -1545,7 +1545,7 @@
             // 
             // txt_TEMPLATE
             // 
-            this.txt_TEMPLATE.Location = new System.Drawing.Point(177, 494);
+            this.txt_TEMPLATE.Location = new System.Drawing.Point(177, 1530);
             this.txt_TEMPLATE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_TEMPLATE.Name = "txt_TEMPLATE";
             this.txt_TEMPLATE.Size = new System.Drawing.Size(155, 24);
@@ -1554,7 +1554,7 @@
             // 
             // txt_ORDER_NUM
             // 
-            this.txt_ORDER_NUM.Location = new System.Drawing.Point(16, -738);
+            this.txt_ORDER_NUM.Location = new System.Drawing.Point(16, 298);
             this.txt_ORDER_NUM.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_ORDER_NUM.Name = "txt_ORDER_NUM";
             this.txt_ORDER_NUM.Properties.Mask.EditMask = "[+]{0,1}(\\d+)";
@@ -1565,7 +1565,7 @@
             // 
             // txt_MIN_MIN_VALUE
             // 
-            this.txt_MIN_MIN_VALUE.Location = new System.Drawing.Point(177, 443);
+            this.txt_MIN_MIN_VALUE.Location = new System.Drawing.Point(177, 1479);
             this.txt_MIN_MIN_VALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_MIN_MIN_VALUE.Name = "txt_MIN_MIN_VALUE";
             this.txt_MIN_MIN_VALUE.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1576,7 +1576,7 @@
             // 
             // txt_NBSS
             // 
-            this.txt_NBSS.Location = new System.Drawing.Point(177, -791);
+            this.txt_NBSS.Location = new System.Drawing.Point(177, 245);
             this.txt_NBSS.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_NBSS.Name = "txt_NBSS";
             this.txt_NBSS.Size = new System.Drawing.Size(155, 24);
@@ -1585,7 +1585,7 @@
             // 
             // txt_CGROUP
             // 
-            this.txt_CGROUP.Location = new System.Drawing.Point(177, -738);
+            this.txt_CGROUP.Location = new System.Drawing.Point(177, 298);
             this.txt_CGROUP.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_CGROUP.Name = "txt_CGROUP";
             this.txt_CGROUP.Size = new System.Drawing.Size(155, 24);
@@ -1594,7 +1594,7 @@
             // 
             // txt_COLOR_VALUE
             // 
-            this.txt_COLOR_VALUE.Location = new System.Drawing.Point(16, 494);
+            this.txt_COLOR_VALUE.Location = new System.Drawing.Point(16, 1530);
             this.txt_COLOR_VALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_COLOR_VALUE.Name = "txt_COLOR_VALUE";
             this.txt_COLOR_VALUE.Size = new System.Drawing.Size(155, 24);
@@ -1603,7 +1603,7 @@
             // 
             // txt_PRECISION
             // 
-            this.txt_PRECISION.Location = new System.Drawing.Point(177, -842);
+            this.txt_PRECISION.Location = new System.Drawing.Point(177, 194);
             this.txt_PRECISION.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_PRECISION.Name = "txt_PRECISION";
             this.txt_PRECISION.Properties.Mask.EditMask = "[+]{0,1}(\\d+)";
@@ -1614,7 +1614,7 @@
             // 
             // txt_ALERTRATE
             // 
-            this.txt_ALERTRATE.Location = new System.Drawing.Point(16, -636);
+            this.txt_ALERTRATE.Location = new System.Drawing.Point(16, 400);
             this.txt_ALERTRATE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_ALERTRATE.Name = "txt_ALERTRATE";
             this.txt_ALERTRATE.Properties.Mask.EditMask = "[+]{0,1}(\\d+)";
@@ -1625,7 +1625,7 @@
             // 
             // txt_L1_COLOR_VALUE
             // 
-            this.txt_L1_COLOR_VALUE.Location = new System.Drawing.Point(16, -173);
+            this.txt_L1_COLOR_VALUE.Location = new System.Drawing.Point(16, 863);
             this.txt_L1_COLOR_VALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L1_COLOR_VALUE.Name = "txt_L1_COLOR_VALUE";
             this.txt_L1_COLOR_VALUE.Size = new System.Drawing.Size(155, 24);
@@ -1634,7 +1634,7 @@
             // 
             // txt_L1_START
             // 
-            this.txt_L1_START.Location = new System.Drawing.Point(16, -479);
+            this.txt_L1_START.Location = new System.Drawing.Point(16, 557);
             this.txt_L1_START.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L1_START.Name = "txt_L1_START";
             this.txt_L1_START.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1645,7 +1645,7 @@
             // 
             // txt_L2_START
             // 
-            this.txt_L2_START.Location = new System.Drawing.Point(16, -377);
+            this.txt_L2_START.Location = new System.Drawing.Point(16, 659);
             this.txt_L2_START.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L2_START.Name = "txt_L2_START";
             this.txt_L2_START.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1656,7 +1656,7 @@
             // 
             // txt_L1_RETURNVALUE
             // 
-            this.txt_L1_RETURNVALUE.Location = new System.Drawing.Point(16, -428);
+            this.txt_L1_RETURNVALUE.Location = new System.Drawing.Point(16, 608);
             this.txt_L1_RETURNVALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L1_RETURNVALUE.Name = "txt_L1_RETURNVALUE";
             this.txt_L1_RETURNVALUE.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1667,7 +1667,7 @@
             // 
             // txt_L2_RETURNVALUE
             // 
-            this.txt_L2_RETURNVALUE.Location = new System.Drawing.Point(16, -326);
+            this.txt_L2_RETURNVALUE.Location = new System.Drawing.Point(16, 710);
             this.txt_L2_RETURNVALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L2_RETURNVALUE.Name = "txt_L2_RETURNVALUE";
             this.txt_L2_RETURNVALUE.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1678,7 +1678,7 @@
             // 
             // txt_L2_END
             // 
-            this.txt_L2_END.Location = new System.Drawing.Point(177, -377);
+            this.txt_L2_END.Location = new System.Drawing.Point(177, 659);
             this.txt_L2_END.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L2_END.Name = "txt_L2_END";
             this.txt_L2_END.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1689,7 +1689,7 @@
             // 
             // txt_L3_START
             // 
-            this.txt_L3_START.Location = new System.Drawing.Point(16, -275);
+            this.txt_L3_START.Location = new System.Drawing.Point(16, 761);
             this.txt_L3_START.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L3_START.Name = "txt_L3_START";
             this.txt_L3_START.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1700,7 +1700,7 @@
             // 
             // txt_L2_COLOR_VALUE
             // 
-            this.txt_L2_COLOR_VALUE.Location = new System.Drawing.Point(177, -173);
+            this.txt_L2_COLOR_VALUE.Location = new System.Drawing.Point(177, 863);
             this.txt_L2_COLOR_VALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L2_COLOR_VALUE.Name = "txt_L2_COLOR_VALUE";
             this.txt_L2_COLOR_VALUE.Size = new System.Drawing.Size(155, 24);
@@ -1709,7 +1709,7 @@
             // 
             // txt_L3_COLOR_VALUE
             // 
-            this.txt_L3_COLOR_VALUE.Location = new System.Drawing.Point(16, -122);
+            this.txt_L3_COLOR_VALUE.Location = new System.Drawing.Point(16, 914);
             this.txt_L3_COLOR_VALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L3_COLOR_VALUE.Name = "txt_L3_COLOR_VALUE";
             this.txt_L3_COLOR_VALUE.Size = new System.Drawing.Size(155, 24);
@@ -1718,7 +1718,7 @@
             // 
             // txt_L3_END
             // 
-            this.txt_L3_END.Location = new System.Drawing.Point(177, -275);
+            this.txt_L3_END.Location = new System.Drawing.Point(177, 761);
             this.txt_L3_END.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L3_END.Name = "txt_L3_END";
             this.txt_L3_END.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1729,7 +1729,7 @@
             // 
             // txt_L1_STARTDOWN
             // 
-            this.txt_L1_STARTDOWN.Location = new System.Drawing.Point(16, -16);
+            this.txt_L1_STARTDOWN.Location = new System.Drawing.Point(16, 1020);
             this.txt_L1_STARTDOWN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L1_STARTDOWN.Name = "txt_L1_STARTDOWN";
             this.txt_L1_STARTDOWN.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1740,7 +1740,7 @@
             // 
             // txt_L3_RETURNVALUE
             // 
-            this.txt_L3_RETURNVALUE.Location = new System.Drawing.Point(16, -224);
+            this.txt_L3_RETURNVALUE.Location = new System.Drawing.Point(16, 812);
             this.txt_L3_RETURNVALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L3_RETURNVALUE.Name = "txt_L3_RETURNVALUE";
             this.txt_L3_RETURNVALUE.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1751,7 +1751,7 @@
             // 
             // txt_L1_ENDDOWN
             // 
-            this.txt_L1_ENDDOWN.Location = new System.Drawing.Point(177, -16);
+            this.txt_L1_ENDDOWN.Location = new System.Drawing.Point(177, 1020);
             this.txt_L1_ENDDOWN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L1_ENDDOWN.Name = "txt_L1_ENDDOWN";
             this.txt_L1_ENDDOWN.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1762,7 +1762,7 @@
             // 
             // txt_L1_DOWNRETURNVALUE
             // 
-            this.txt_L1_DOWNRETURNVALUE.Location = new System.Drawing.Point(16, 35);
+            this.txt_L1_DOWNRETURNVALUE.Location = new System.Drawing.Point(16, 1071);
             this.txt_L1_DOWNRETURNVALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L1_DOWNRETURNVALUE.Name = "txt_L1_DOWNRETURNVALUE";
             this.txt_L1_DOWNRETURNVALUE.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1773,7 +1773,7 @@
             // 
             // txt_L2_STARTDOWN
             // 
-            this.txt_L2_STARTDOWN.Location = new System.Drawing.Point(16, 86);
+            this.txt_L2_STARTDOWN.Location = new System.Drawing.Point(16, 1122);
             this.txt_L2_STARTDOWN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L2_STARTDOWN.Name = "txt_L2_STARTDOWN";
             this.txt_L2_STARTDOWN.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1784,7 +1784,7 @@
             // 
             // txt_L1_COLOR_VALUEDOWN
             // 
-            this.txt_L1_COLOR_VALUEDOWN.Location = new System.Drawing.Point(16, 290);
+            this.txt_L1_COLOR_VALUEDOWN.Location = new System.Drawing.Point(16, 1326);
             this.txt_L1_COLOR_VALUEDOWN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L1_COLOR_VALUEDOWN.Name = "txt_L1_COLOR_VALUEDOWN";
             this.txt_L1_COLOR_VALUEDOWN.Size = new System.Drawing.Size(155, 24);
@@ -1793,7 +1793,7 @@
             // 
             // txt_L2_DOWNRETURNVALUE
             // 
-            this.txt_L2_DOWNRETURNVALUE.Location = new System.Drawing.Point(16, 137);
+            this.txt_L2_DOWNRETURNVALUE.Location = new System.Drawing.Point(16, 1173);
             this.txt_L2_DOWNRETURNVALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L2_DOWNRETURNVALUE.Name = "txt_L2_DOWNRETURNVALUE";
             this.txt_L2_DOWNRETURNVALUE.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1804,7 +1804,7 @@
             // 
             // txt_L2_ENDDOWN
             // 
-            this.txt_L2_ENDDOWN.Location = new System.Drawing.Point(177, 86);
+            this.txt_L2_ENDDOWN.Location = new System.Drawing.Point(177, 1122);
             this.txt_L2_ENDDOWN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L2_ENDDOWN.Name = "txt_L2_ENDDOWN";
             this.txt_L2_ENDDOWN.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1815,7 +1815,7 @@
             // 
             // txt_L3_STARTDOWN
             // 
-            this.txt_L3_STARTDOWN.Location = new System.Drawing.Point(16, 188);
+            this.txt_L3_STARTDOWN.Location = new System.Drawing.Point(16, 1224);
             this.txt_L3_STARTDOWN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L3_STARTDOWN.Name = "txt_L3_STARTDOWN";
             this.txt_L3_STARTDOWN.Size = new System.Drawing.Size(155, 24);
@@ -1824,7 +1824,7 @@
             // 
             // txt_L2_COLOR_VALUEDOWN
             // 
-            this.txt_L2_COLOR_VALUEDOWN.Location = new System.Drawing.Point(177, 290);
+            this.txt_L2_COLOR_VALUEDOWN.Location = new System.Drawing.Point(177, 1326);
             this.txt_L2_COLOR_VALUEDOWN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L2_COLOR_VALUEDOWN.Name = "txt_L2_COLOR_VALUEDOWN";
             this.txt_L2_COLOR_VALUEDOWN.Size = new System.Drawing.Size(155, 24);
@@ -1833,7 +1833,7 @@
             // 
             // txt_L3_DOWNRETURNVALUE
             // 
-            this.txt_L3_DOWNRETURNVALUE.Location = new System.Drawing.Point(16, 239);
+            this.txt_L3_DOWNRETURNVALUE.Location = new System.Drawing.Point(16, 1275);
             this.txt_L3_DOWNRETURNVALUE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L3_DOWNRETURNVALUE.Name = "txt_L3_DOWNRETURNVALUE";
             this.txt_L3_DOWNRETURNVALUE.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1844,7 +1844,7 @@
             // 
             // txt_L3_ENDDOWN
             // 
-            this.txt_L3_ENDDOWN.Location = new System.Drawing.Point(177, 188);
+            this.txt_L3_ENDDOWN.Location = new System.Drawing.Point(177, 1224);
             this.txt_L3_ENDDOWN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L3_ENDDOWN.Name = "txt_L3_ENDDOWN";
             this.txt_L3_ENDDOWN.Properties.Mask.EditMask = "-?\\d+(\\R.\\d{0,9})";
@@ -1855,7 +1855,7 @@
             // 
             // txt_L3_COLOR_VALUEDOWN
             // 
-            this.txt_L3_COLOR_VALUEDOWN.Location = new System.Drawing.Point(16, 341);
+            this.txt_L3_COLOR_VALUEDOWN.Location = new System.Drawing.Point(16, 1377);
             this.txt_L3_COLOR_VALUEDOWN.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_L3_COLOR_VALUEDOWN.Name = "txt_L3_COLOR_VALUEDOWN";
             this.txt_L3_COLOR_VALUEDOWN.Size = new System.Drawing.Size(155, 24);
@@ -1864,7 +1864,7 @@
             // 
             // rdo_xjyj
             // 
-            this.rdo_xjyj.Location = new System.Drawing.Point(16, -71);
+            this.rdo_xjyj.Location = new System.Drawing.Point(16, 965);
             this.rdo_xjyj.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdo_xjyj.Name = "rdo_xjyj";
             this.rdo_xjyj.Properties.Appearance.Options.UseFont = true;
@@ -1878,7 +1878,7 @@
             // 
             // txt_REMARK
             // 
-            this.txt_REMARK.Location = new System.Drawing.Point(16, 545);
+            this.txt_REMARK.Location = new System.Drawing.Point(16, 1581);
             this.txt_REMARK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_REMARK.Name = "txt_REMARK";
             this.txt_REMARK.Size = new System.Drawing.Size(316, 24);
@@ -1887,7 +1887,7 @@
             // 
             // rdo_ts
             // 
-            this.rdo_ts.Location = new System.Drawing.Point(16, -534);
+            this.rdo_ts.Location = new System.Drawing.Point(16, 502);
             this.rdo_ts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rdo_ts.Name = "rdo_ts";
             this.rdo_ts.Properties.Appearance.Options.UseFont = true;
@@ -1900,7 +1900,7 @@
             // 
             // com_PermissionType
             // 
-            this.com_PermissionType.Location = new System.Drawing.Point(16, -585);
+            this.com_PermissionType.Location = new System.Drawing.Point(16, 451);
             this.com_PermissionType.MenuManager = this.barManager1;
             this.com_PermissionType.Name = "com_PermissionType";
             this.com_PermissionType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1912,7 +1912,7 @@
             // 
             // com_ReportType
             // 
-            this.com_ReportType.Location = new System.Drawing.Point(177, -585);
+            this.com_ReportType.Location = new System.Drawing.Point(177, 451);
             this.com_ReportType.MenuManager = this.barManager1;
             this.com_ReportType.Name = "com_ReportType";
             this.com_ReportType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1924,7 +1924,7 @@
             // 
             // EXTENDCODE2
             // 
-            this.EXTENDCODE2.Location = new System.Drawing.Point(16, 596);
+            this.EXTENDCODE2.Location = new System.Drawing.Point(16, 1632);
             this.EXTENDCODE2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EXTENDCODE2.Name = "EXTENDCODE2";
             this.EXTENDCODE2.Size = new System.Drawing.Size(155, 24);
@@ -1933,7 +1933,7 @@
             // 
             // EXTENDCODE3
             // 
-            this.EXTENDCODE3.Location = new System.Drawing.Point(177, 596);
+            this.EXTENDCODE3.Location = new System.Drawing.Point(177, 1632);
             this.EXTENDCODE3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EXTENDCODE3.Name = "EXTENDCODE3";
             this.EXTENDCODE3.Size = new System.Drawing.Size(155, 24);
@@ -1942,7 +1942,7 @@
             // 
             // EXTENDCODE4
             // 
-            this.EXTENDCODE4.Location = new System.Drawing.Point(16, 647);
+            this.EXTENDCODE4.Location = new System.Drawing.Point(16, 1683);
             this.EXTENDCODE4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EXTENDCODE4.Name = "EXTENDCODE4";
             this.EXTENDCODE4.Size = new System.Drawing.Size(155, 24);
@@ -1951,7 +1951,7 @@
             // 
             // EXTENDCODE5
             // 
-            this.EXTENDCODE5.Location = new System.Drawing.Point(177, 647);
+            this.EXTENDCODE5.Location = new System.Drawing.Point(177, 1683);
             this.EXTENDCODE5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EXTENDCODE5.Name = "EXTENDCODE5";
             this.EXTENDCODE5.Size = new System.Drawing.Size(155, 24);

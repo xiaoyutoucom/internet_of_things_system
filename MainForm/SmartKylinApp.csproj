@@ -414,6 +414,18 @@
     <Compile Include="View\Confighelp\AboutSystem.Designer.cs">
       <DependentUpon>AboutSystem.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Confighelp\DelectBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Confighelp\DelectBox.designer.cs">
+      <DependentUpon>DelectBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Confighelp\AboutVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Confighelp\AboutVersion.designer.cs">
+      <DependentUpon>AboutVersion.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Confighelp\Confighelp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -715,6 +727,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Confighelp\AboutSystem.resx">
       <DependentUpon>AboutSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Confighelp\DelectBox.resx">
+      <DependentUpon>DelectBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Confighelp\AboutVersion.resx">
+      <DependentUpon>AboutVersion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Confighelp\Confighelp.resx">
       <DependentUpon>Confighelp.cs</DependentUpon>

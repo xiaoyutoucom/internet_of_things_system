@@ -108,16 +108,16 @@ namespace SmartKylinApp.View.BaseConfig
                 if (gridView1.GetSelectedRows().IsNotAny())
                 {
                     var id = gridView1.GetRowCellValue(gridView1.GetSelectedRows()[0], "Id");
-                    var box = new XtraMessageBoxArgs();
-                    box.Caption = "提示";
-                    box.Text = "确定要删除吗？";
-                    box.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                    box.Showing += ShowButton.Box_Showing;
-                    if (XtraMessageBox.Show(box) != DialogResult.OK)
+                    //删除数据
+                    DelectBox dbox = new DelectBox();
+                    dbox.StartPosition = FormStartPosition.CenterScreen;
+                    dbox.ShowDialog();
+                    bool IfDelect = dbox.IfDelect;
+                    if (!IfDelect)
                     {
                         return;
                     }
-                   // GlobalHandler.sensorresp.Delete((int)id);
+                    // GlobalHandler.sensorresp.Delete((int)id);
                     var index = gridView1.GetSelectedRows();
                     index.Each(a => GlobalHandler.sensorresp.Delete((int)(gridView1.GetRowCellValue(a, "Id"))));
                     if (gridView2.GetSelectedRows().IsNotEmpty())

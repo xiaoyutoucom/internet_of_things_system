@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.Container = new DevExpress.XtraEditors.PanelControl();
             this.MainContainer = new DevExpress.XtraEditors.PanelControl();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -56,8 +58,8 @@
             this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
             this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
-            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.ribbonStatusBar2 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.toolTipController1 = new DevExpress.Utils.ToolTipController(this.components);
             this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
@@ -71,6 +73,7 @@
             this.barItem_runingtime = new DevExpress.XtraBars.BarStaticItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SmartKylinApp.View.ComprehensiveDocument.WaitForm1), true, true);
+            this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.Container)).BeginInit();
             this.Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainContainer)).BeginInit();
@@ -153,14 +156,15 @@
             this.barButtonItem15,
             this.barButtonItem16,
             this.barButtonItem17,
-            this.barButtonItem18});
+            this.barButtonItem18,
+            this.barButtonItem19});
             this.ribbonControl1.Location = new System.Drawing.Point(2, 2);
-            this.ribbonControl1.MaxItemId = 15;
+            this.ribbonControl1.MaxItemId = 16;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemFontEdit1});
             this.ribbonControl1.Size = new System.Drawing.Size(1342, 61);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar2;
+            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
             this.ribbonControl1.ToolTipController = this.toolTipController1;
             this.ribbonControl1.Visible = false;
@@ -427,10 +431,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
             // 
-            // toolTipController1
-            // 
-            this.toolTipController1.BeforeShow += new DevExpress.Utils.ToolTipControllerBeforeShowEventHandler(this.toolTipController1_BeforeShow);
-            // 
             // ribbonStatusBar2
             // 
             this.ribbonStatusBar2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -444,6 +444,7 @@
             this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItem18);
             this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItem6);
             this.ribbonStatusBar2.ItemLinks.Add(this.barSkin);
+            this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItem19);
             this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItem8);
             this.ribbonStatusBar2.ItemLinks.Add(this.barButtonItem4);
             this.ribbonStatusBar2.Location = new System.Drawing.Point(2, 63);
@@ -453,6 +454,10 @@
             this.ribbonStatusBar2.ShowSizeGrip = false;
             this.ribbonStatusBar2.Size = new System.Drawing.Size(1342, 35);
             this.ribbonStatusBar2.ToolTipController = this.toolTipController1;
+            // 
+            // toolTipController1
+            // 
+            this.toolTipController1.BeforeShow += new DevExpress.Utils.ToolTipControllerBeforeShowEventHandler(this.toolTipController1_BeforeShow);
             // 
             // barStaticItem2
             // 
@@ -537,6 +542,25 @@
             this.barItem_runingtime.Name = "barItem_runingtime";
             this.barItem_runingtime.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
+            // barButtonItem19
+            // 
+            this.barButtonItem19.Caption = "更新信息";
+            this.barButtonItem19.Id = 15;
+            this.barButtonItem19.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem19.ImageOptions.Image")));
+            this.barButtonItem19.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.barButtonItem19.ItemAppearance.Disabled.Options.UseFont = true;
+            this.barButtonItem19.ItemAppearance.Hovered.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.barButtonItem19.ItemAppearance.Hovered.Options.UseFont = true;
+            this.barButtonItem19.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.barButtonItem19.ItemAppearance.Normal.Options.UseFont = true;
+            this.barButtonItem19.ItemAppearance.Pressed.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.barButtonItem19.ItemAppearance.Pressed.Options.UseFont = true;
+            this.barButtonItem19.Name = "barButtonItem19";
+            toolTipItem1.Text = "更新信息";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.barButtonItem19.SuperTip = superToolTip1;
+            this.barButtonItem19.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem19_ItemClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -601,5 +625,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem16;
         private DevExpress.XtraBars.BarButtonItem barButtonItem17;
         private DevExpress.XtraBars.BarButtonItem barButtonItem18;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem19;
     }
 }

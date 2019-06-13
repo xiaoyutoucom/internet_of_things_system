@@ -563,14 +563,15 @@ namespace SmartKylinApp.View.Query
                 foreach (ConfigRecord dtm in listr)
                 {
                     cr = rlist.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);
-                    msType = lstMsType.Where(p => p.TYPE_KEY == dtm.STATIONID.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
+
+                    msType = lstMsType.Where(p => p.TYPE_KEY == dtm.STATIONID?.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
                     if (cr == null)
                     {
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = 0, SAVE_DATE = "", CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType, CCBH = dtm.SENSORID.Device.CCBH });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = 0, SAVE_DATE = "", CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID?.BMMC, MONITORTYPE = msType, CCBH = dtm.SENSORID?.Device?.CCBH });
                     }
                     else
                     {
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = cr.CONFIG_VALUE, SAVE_DATE = cr.SAVE_DATE.ToString(), CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType, CCBH = dtm.SENSORID.Device.CCBH });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = cr.CONFIG_VALUE, SAVE_DATE = cr.SAVE_DATE.ToString(), CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID?.BMMC, MONITORTYPE = msType, CCBH = dtm.SENSORID?.Device?.CCBH });
                     }
                 }
                 //gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度                      
@@ -648,8 +649,9 @@ namespace SmartKylinApp.View.Query
                     }
                     else
                     {
-                        msType = lstMsType.Where(p => p.TYPE_KEY == cr.STATIONID.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = cr.CONFIG_DESC, MONITORMC = cr.STATIONID.BMMC, MONITORTYPE = msType, CCBH = cr.SENSORID.Device.CCBH });
+
+                        msType = lstMsType.Where(p => p.TYPE_KEY == cr.STATIONID?.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = cr.CONFIG_DESC, MONITORMC = cr.STATIONID?.BMMC, MONITORTYPE = msType, CCBH = cr.SENSORID?.Device?.CCBH });
                     }
                 }
                 //gridView2.IndicatorWidth = 12 + 9 * la.Text.Length;//行号宽度       
@@ -729,14 +731,14 @@ namespace SmartKylinApp.View.Query
                         continue;
                     }
                     cr1 = listr.FirstOrDefault(a => a.CONFIG_CODE == dtm.CONFIG_CODE);
-                    msType1 = lstMsType.Where(p => p.TYPE_KEY == dtm.STATIONID.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
+                    msType1 = lstMsType.Where(p => p.TYPE_KEY == dtm.STATIONID?.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
                     if (cr1 == null)
                     {
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = 0, SAVE_DATE = "", CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType1, CCBH = dtm.SENSORID.Device.CCBH });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = 0, SAVE_DATE = "", CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID?.BMMC, MONITORTYPE = msType1, CCBH = dtm.SENSORID?.Device?.CCBH });
                     }
                     else
                     {
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = cr1.CONFIG_VALUE, SAVE_DATE = cr1.SAVE_DATE.ToString(), CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID.BMMC, MONITORTYPE = msType1, CCBH = dtm.SENSORID.Device.CCBH });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = cr1.CONFIG_VALUE, SAVE_DATE = cr1.SAVE_DATE.ToString(), CONFIGMC = dtm.CONFIG_DESC, MONITORMC = dtm.STATIONID?.BMMC, MONITORTYPE = msType1, CCBH = dtm.SENSORID?.Device?.CCBH });
                     }
                 }
 
@@ -808,12 +810,12 @@ namespace SmartKylinApp.View.Query
                     }
                     if (cr == null)
                     {
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = "", MONITORMC = "", MONITORTYPE = msType, CCBH = "" });
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = "", MONITORMC = "", MONITORTYPE = "", CCBH = "" });
                     }
                     else
                     {
-                        msType = lstMsType.Where(p => p.TYPE_KEY == cr.STATIONID.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
-                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = cr.CONFIG_DESC, MONITORMC = cr.STATIONID.BMMC, MONITORTYPE = msType, CCBH = cr.SENSORID.Device.CCBH });
+                        msType = lstMsType.Where(p => p.TYPE_KEY == cr.STATIONID?.STATIONTYPE).FirstNonDefault()?.TYPE_NAME;
+                        dllist.Add(new DataListModel() { CONFIG_CODE = dtm.CONFIG_CODE, CONFIG_VALUE = dtm.CONFIG_VALUE, SAVE_DATE = dtm.SAVE_DATE.ToString(), CONFIGMC = cr.CONFIG_DESC, MONITORMC = cr.STATIONID?.BMMC, MONITORTYPE = msType, CCBH = cr.SENSORID?.Device?.CCBH });
                     }
                 }
                 gridControl1.DataSource = dllist;

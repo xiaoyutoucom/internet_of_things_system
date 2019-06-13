@@ -12,6 +12,7 @@ using SmartKylinApp.Common;
 using SmartKylinData.IOTModel;
 using ServiceStack;
 using log4net;
+using SmartKylinApp.View.BaseConfig;
 
 //监测点类型
 
@@ -112,12 +113,12 @@ namespace SmartKylinApp.View
             try
             {
                 if (gridView1.GetSelectedRows().Length == 0) return;
-                var box = new XtraMessageBoxArgs();
-                box.Caption = "提示";
-                box.Text = "确定要删除吗？";
-                box.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel };
-                box.Showing += ShowButton.Box_Showing;
-                if (XtraMessageBox.Show(box) != DialogResult.OK)
+                //删除数据
+                DelectBox dbox = new DelectBox();
+                dbox.StartPosition = FormStartPosition.CenterScreen;
+                dbox.ShowDialog();
+                bool IfDelect = dbox.IfDelect;
+                if (!IfDelect)
                 {
                     return;
                 }

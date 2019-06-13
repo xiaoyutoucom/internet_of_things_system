@@ -268,5 +268,12 @@ namespace MainForm
         {
             GlobalHandler.AddControl(new SMSConfig());
         }
+
+        private void barButtonItem19_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AboutVersion from = new AboutVersion();
+            from.StartPosition = FormStartPosition.CenterScreen;
+            from.ShowDialog();
+        }
     }
 }
