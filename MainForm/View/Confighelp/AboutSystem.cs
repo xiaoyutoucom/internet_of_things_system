@@ -33,10 +33,10 @@ namespace SmartKylinApp.View.BaseConfig
         {
             label3.Text = "系统介绍：本系统可以实现数据统一配置、数据查询、系统配置、更新缓存、皮肤风格修改等功\n\n能，方便快捷的录入和查询设备、传感器等基础信息。";
             var Version = ConfigHelp.Config["Application:Setting:Version"];
-            label5.Text += Version;
+            label5.Text += "V1.4";
             label2.Text = "警告：本计算机程序受著作权法和国际条约保护，未经授权而擅自复制或传播本程序，将受到严\n\n厉的民事制裁，并将在法律许可范围内受到最大程度的起诉。";
             var VersionDate = ConfigHelp.Config["Application:Setting:VersionDate"];
-            label4.Text += VersionDate;
+            label4.Text += "2019-06-11";
 
         }
     }

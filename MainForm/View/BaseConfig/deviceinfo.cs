@@ -299,11 +299,12 @@ namespace SmartKylinApp.View.BaseConfig
             layoutControl1.Controls.Remove(layoutControl1.Controls["import"]);
             layoutControl1.Visible = !layoutControl1.Visible;
             Isedit = true;
-            EditData();
+          
             if (layoutControl1.Visible)
             {
                 BindTreeMstype();
             }
+            EditData();
         }
 
         private void dateEdit1_EditValueChanged(object sender, System.EventArgs e)

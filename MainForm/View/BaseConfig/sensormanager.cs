@@ -231,6 +231,10 @@ namespace SmartKylinApp.View.BaseConfig
                     return;
                 }
                     //Modbus信息
+                    if(gridView1.GetSelectedRows().Count()<=0)
+                    {
+                        return;
+                    }
                     var id = gridView1.GetRowCellValue(gridView1.GetSelectedRows()[0], "Id");
                     mbmodel = GlobalHandler.modbusresp.FirstOrDefault(b => b.SENSOR.Id == (int)id);
                     if(mbmodel!=null)

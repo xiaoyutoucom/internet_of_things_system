@@ -628,6 +628,16 @@ namespace SmartKylinApp.View.UnifiedConfigs
                 {
                     txt_bmms.Properties.Appearance.BorderColor = Color.White;
                 }
+                if (string.IsNullOrEmpty(bet_cgqbm.Text))
+                {
+                    bet_cgqbm.Properties.Appearance.BorderColor = Color.Red;
+                    validate = true;
+                    st.Append("传感器编码不能为空！\n\r");
+                }
+                else
+                {
+                    bet_cgqbm.Properties.Appearance.BorderColor = Color.White;
+                }
                 //if (string.IsNullOrEmpty(bet_cgqbm.Text))
                 //{
                 //    bet_cgqbm.Properties.Appearance.BorderColor = Color.Red;
