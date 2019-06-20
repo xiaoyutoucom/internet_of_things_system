@@ -17,6 +17,8 @@ using SmartKylinData.IOTModel;
 using StackExchange.Redis;
 using SmartKylinApp.View.BaseConfig;
 using log4net;
+using RestSharp.Extensions;
+using Newtonsoft.Json.Linq;
 
 namespace SmartKylinApp.View.Cache
 {
@@ -90,7 +92,7 @@ namespace SmartKylinApp.View.Cache
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             label1.Visible = !radioButton1.Checked;
-            comboBox2.Visible =!radioButton1.Checked;
+            comboBox2.Visible = !radioButton1.Checked;
             updatatype = radioButton1.Checked;
         }
 
@@ -121,13 +123,13 @@ namespace SmartKylinApp.View.Cache
                 if (updatatype)
                 {
                     //更新全部缓存
-                    Updata();
+                    UpdataAllCache();
                 }
                 else
                 {
                     //按照行业类型更新
                     var type = comboBox2.SelectedValue.ToString();
-                    Updata(type);
+                    UpdataCacheBytype(type);
                 }
 
                 splashScreenManager1.CloseWaitForm();
@@ -140,107 +142,142 @@ namespace SmartKylinApp.View.Cache
                 _log.Error("缓存更新失败，出错提示：" + exception.ToString());
             }
 
-          
+
         }
-        private void UpOPC()
+        private void UpOPC(string type)
         {
-            //var variablelist = configList.Where(a => a.VARIABLE_NAME != null&&a.SENSORID==null);
-            //全部数据，说明：没有变量名称的配置信息，如OPC控制
-            var opclist = GlobalHandler.configresp.GetAllList(a => a.VARIABLE_NAME != null && a.VARIABLE_NAME != "").ToList();
-            opclist.ForEach(a =>
+            try
             {
-                a.TAGID = null;
-                a.STATIONID = null;
-                a.SENSORID = null;//上一个没注释
-            });
-            //opc
-            _db.StringSet($"Default:Kylin:Config", JsonConvert.SerializeObject(opclist));
-        }
-        private void Updata()
-        {
-            //更新ConfigSensor，说明：没有变量名称的配置信息，如OPC控制
-            var configList = GlobalHandler.configresp.GetAllList();
-            UpOPC();
-            //var list = variablelist.Select(b => new
-            //{
-            //    Id = b.Id,
-            //    //SENSORID = b.SENSORID.Id,
-            //    CONFIG_CODE = b.CONFIG_CODE,
-            //    VARIABLE_NAME = b.VARIABLE_NAME,
-            //    ALERTRATE = b.ALERTRATE
-            //}).ToList();
-            //_db.StringSet($"Default:Kylin:Config", JsonConvert.SerializeObject(list));
+                List<ConfigRecord> configlist;
+                configlist = string.IsNullOrEmpty(type) ? GlobalHandler.configresp.GetAllList(a => a.VARIABLE_NAME != null && a.VARIABLE_NAME != "") : GlobalHandler.configresp.GetAllList(a => a.VARIABLE_NAME != null && a.VARIABLE_NAME != "" && a.STATIONID.STATIONTYPE.StartsWith(type));
 
-            //更新其他的
-            var configs = configList.Where(a => a.SENSORID != null).ToList();
-            configs.ForEach(b =>
+                configlist.ForEach(a =>
                 {
-                    var key = b.SENSORID.Id;
-                    b.TAGID = null;
-                    b.STATIONID = null;
-                    b.SENSORID = null;
-                    _db.StringSet($"Default:Kylin:ConfigSensor:{key}", JsonConvert.SerializeObject(b));
+                    try
+                    {
+                        a.TAGID = null;
+                        a.STATIONID = null;
+                        a.SENSORID = null;
+                        _db.KeyDelete($"Default:Kylin:Opc:{a.VARIABLE_NAME}");
+                        _db.StringSet($"Default:Kylin:Opc:{a.VARIABLE_NAME}", JsonConvert.SerializeObject(a));
+                    }
+                    catch { }
                 });
-
-            //更新设备信息
-            var devicelist = GlobalHandler.deviceresp.GetAllList();
-            var sensorlist = GlobalHandler.sensorresp.GetAllList();
-
-            devicelist?.ForEach(a =>
+            }
+            catch (Exception e)
             {
-                var sens = sensorlist.Where(b => b.Device?.Id == a.Id).Select(c => new SensorRecord()
-                {
-                    Id = c.Id,
-                    CCRQ = c.CCRQ,
-                    CGQBM = c.CGQBM,
-                    CGQLXBM = c.Device.CCBH,
-                    BZ = c.BZ,
-                    CGQLXMC = c.CGQLXMC,
-                    CGQMC = c.CGQMC,
-                    CGQXH = c.CGQXH
-                });
-                _db.StringSet($"Default:Kylin:Device:{a.CCBH}", JsonConvert.SerializeObject(sens));
-            });
-            
+                _log.Error("opc缓存更新失败，出错提示：" + e.ToString());
+            }
         }
 
-        private void Updata(string type)
+        //更新缓存
+        private void UpdataAllCache()
         {
-            //更新ConfigSensor，说明：没有变量名称的配置信息，如OPC控制
-            var configList = GlobalHandler.configresp.GetAllList(a=>a.STATIONID.STATIONTYPE.StartsWith(type));
-
-            UpOPC();
-
-            //更新其他的
-            var configs = configList.Where(a => a.SENSORID != null).ToList();
-            configs.ForEach(b =>
+            try
             {
-                var key = b.SENSORID.Id;
-                b.TAGID = null;
-                b.STATIONID = null;
-                b.SENSORID = null;
-                _db.StringSet($"Default:Kylin:ConfigSensor:{key}", JsonConvert.SerializeObject(b));
-            });
-
-            //更新设备信息
-            var devicelist = GlobalHandler.deviceresp.GetAllList(a=>a.SBTYPE.StartsWith(type));
-            var sensorlist = GlobalHandler.sensorresp.GetAllList(a=>a.Device.SBTYPE.StartsWith(type));
-
-            devicelist?.ForEach(a =>
-            {
-                var sens = sensorlist.Where(b => b.Device.Id == a.Id).Select(c => new SensorRecord()
+                //获取所有的数据
+                var configlist = GlobalHandler.configresp.GetAllList(a => (a.VARIABLE_NAME == "" || a.VARIABLE_NAME == null) && a.SENSORID != null);
+                configlist?.ForEach(b =>
                 {
-                    Id = c.Id,
-                    CCRQ = c.CCRQ,
-                    CGQBM = c.CGQBM,
-                    CGQLXBM = c.Device.CCBH,
-                    BZ = c.BZ,
-                    CGQLXMC = c.CGQLXMC,
-                    CGQMC = c.CGQMC,
-                    CGQXH = c.CGQXH
+                    try
+                    {
+                        var key = b.SENSORID.Id;
+                        b.TAGID = null;
+                        b.STATIONID = null;
+                        b.SENSORID = null;
+                        _db.KeyDelete($"Default:Kylin:ConfigSensor:{key}");
+                        _db.StringSet($"Default:Kylin:ConfigSensor:{key}", JsonConvert.SerializeObject(b));
+                    }
+                    catch { }
+
                 });
-                _db.StringSet($"Default:Kylin:Device:{a.CCBH}", JsonConvert.SerializeObject(sens));
-            });
+
+                //更新设备传感器
+                var devicelist = GlobalHandler.deviceresp.GetAllList();
+                var sensorlist = GlobalHandler.sensorresp.GetAllList();
+
+                devicelist?.ForEach(a =>
+                {
+                    try
+                    {
+                        var sens = sensorlist.Where(b => b.Device?.Id == a.Id).Select(c => new SensorRecord()
+                        {
+                            Id = c.Id,
+                            CCRQ = c.CCRQ,
+                            CGQBM = c.CGQBM,
+                            CGQLXBM = c.Device.CCBH,
+                            BZ = c.BZ,
+                            CGQLXMC = c.CGQLXMC,
+                            CGQMC = c.CGQMC,
+                            CGQXH = c.CGQXH
+                        });
+                        _db.KeyDelete($"Default:Kylin:Device:{a.CCBH}");
+                        _db.StringSet($"Default:Kylin:Device:{a.CCBH}", JsonConvert.SerializeObject(sens));
+                    }
+                    catch { }
+                });
+            }
+            catch (Exception e)
+            {
+                _log.Error("缓存更新失败，出错提示：" + e);
+            }
+            UpOPC("");
+        }
+
+
+        private void UpdataCacheBytype(string type)
+        {
+            try
+            {
+                //获取所有的数据
+                var configlist = GlobalHandler.configresp.GetAllList(a => (a.VARIABLE_NAME == "" || a.VARIABLE_NAME == null) && a.SENSORID != null && a.STATIONID.STATIONTYPE.StartsWith(type));
+                configlist?.ForEach(b =>
+                {
+                    try
+                    {
+                        var key = b.SENSORID.Id;
+                        b.TAGID = null;
+                        b.STATIONID = null;
+                        b.SENSORID = null;
+                        _db.KeyDelete($"Default:Kylin:ConfigSensor:{key}");
+                        _db.StringSet($"Default:Kylin:ConfigSensor:{key}", JsonConvert.SerializeObject(b));
+                    }
+                    catch { }
+
+                });
+
+                //更新设备传感器
+                var devicelist = GlobalHandler.deviceresp.GetAllList(a => a.SBTYPE.StartsWith(type));
+                var sensorlist = GlobalHandler.sensorresp.GetAllList(a => a.Device.SBTYPE.StartsWith(type));
+                devicelist?.ForEach(a =>
+                {
+                    try
+                    {
+                        var sens = sensorlist.Where(b => b.Device?.Id == a.Id).Select(c => new SensorRecord()
+                        {
+                            Id = c.Id,
+                            CCRQ = c.CCRQ,
+                            CGQBM = c.CGQBM,
+                            CGQLXBM = c.Device.CCBH,
+                            BZ = c.BZ,
+                            CGQLXMC = c.CGQLXMC,
+                            CGQMC = c.CGQMC,
+                            CGQXH = c.CGQXH
+                        });
+                        _db.KeyDelete($"Default:Kylin:Device:{a.CCBH}");
+                        _db.StringSet($"Default:Kylin:Device:{a.CCBH}", JsonConvert.SerializeObject(sens));
+                    }
+                    catch { }
+                });
+
+            }
+            catch (Exception e)
+            {
+                _log.Error("分类更新，出错提示：" + e);
+            }
+
+            //更新opc
+            UpOPC(type);
         }
 
         private void CacheManger_Load(object sender, EventArgs e)
@@ -253,7 +290,7 @@ namespace SmartKylinApp.View.Cache
                        Value = a.FirstOrDefault()?.TYPE_NAME
 
                    }).ToList();
-  
+
             comboBox2.ValueMember = "Key";
             comboBox2.DisplayMember = "Value";
             comboBox2.DataSource = list;
@@ -266,7 +303,7 @@ namespace SmartKylinApp.View.Cache
                 {
                     Id="1",
                     Key = "Opc缓存",
-                    Value = "Default:Kylin:Config"
+                    Value = "Default:Kylin:Opc"
                 },
                 new MstypeModel()
                 {
@@ -302,7 +339,7 @@ namespace SmartKylinApp.View.Cache
                 {
                     case "1":
                         //查询符合条件的opc缓存
-                        var key1 = comboBox1.SelectedValue.ToString();
+                        var key1 = comboBox1.SelectedValue.ToString() + ":" + textEdit1.Text;
                         QueryCache(key1);
                         break;
                     case "2":
@@ -334,16 +371,9 @@ namespace SmartKylinApp.View.Cache
             {
                 var strs = data.ToString();
 
-                var build=new StringBuilder();
-
-                var arrs = strs.Split('}');
-
-                arrs.ForEach(a=>build.AppendLine(a));
-                richTextBox1.Text = build.ToString();
+                var arr = (JObject)JsonConvert.DeserializeObject<dynamic>(strs);
+                richTextBox1.AppendText(arr.ToString());
             }
-            richTextBox1.Text = data;
-
-
         }
         private void simpleButton5_Click(object sender, EventArgs e)
         {
@@ -397,7 +427,7 @@ namespace SmartKylinApp.View.Cache
 
                 var lines = richTextBox1.Lines;
 
-                lines.ForEach(a=>data+=a);
+                lines.ForEach(a => data += a);
 
                 _db.StringSet(key, data);
                 XtraMessageBox.Show("更新成功");

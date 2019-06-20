@@ -176,7 +176,7 @@ namespace SmartKylinApp.View.BaseConfig
                                     {
 
                                         var str = (long.Parse(GlobalHandler.monitorresp.GetAllList(s => s.BMID.StartsWith(bh))
-                                                                 .OrderByDescending(q => q.BMID)
+                                                                 .OrderByDescending(q => q.ID)
                                                                  .FirstOrDefault().BMID.ToString()
                                                                  ) + 1).ToString();
                                         bh = str;
@@ -238,7 +238,7 @@ namespace SmartKylinApp.View.BaseConfig
                                     if (count > 0)
                                     {
                                         var str = (long.Parse(GlobalHandler.configresp.GetAllList(s => s.CONFIG_CODE.StartsWith(bh))
-                                                                 .OrderByDescending(q => q.CONFIG_CODE)
+                                                                 .OrderByDescending(q => q.Id)
                                                                  .FirstOrDefault().CONFIG_CODE.Split('_')[2]
                                                                  ) + 1).ToString();
                                         bh = bh + "_" + str;
