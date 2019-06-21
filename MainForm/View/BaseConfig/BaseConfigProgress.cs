@@ -176,7 +176,7 @@ namespace SmartKylinApp.View.BaseConfig
                                     {
 
                                         var str = (long.Parse(GlobalHandler.monitorresp.GetAllList(s => s.BMID.StartsWith(bh))
-                                                                 .OrderByDescending(q => q.ID)
+                                                                 .OrderByDescending(q => q.Id)
                                                                  .FirstOrDefault().BMID.ToString()
                                                                  ) + 1).ToString();
                                         bh = str;
