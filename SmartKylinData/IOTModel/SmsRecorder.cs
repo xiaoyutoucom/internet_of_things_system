@@ -17,6 +17,7 @@ namespace SmartKylinData.IOTModel
         {
             Id(x => x.Id);
             Map(x => x.SYSTEMCODE);
+            Map(x => x.NAME);
             Map(x => x.PHONENUM);
             Map(x => x.CONTENT);
             Map(x => x.TYPE);
@@ -35,6 +36,10 @@ namespace SmartKylinData.IOTModel
         /// 系统编码
         /// </summary>
         public virtual string SYSTEMCODE { get; set; }
+        /// <summary>
+        /// 发送号码
+        /// </summary>
+        public virtual string NAME { get; set; }
         /// <summary>
         /// 发送号码
         /// </summary>

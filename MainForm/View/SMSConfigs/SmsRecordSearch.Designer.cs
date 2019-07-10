@@ -29,22 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SmsRecordSearch));
-            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barEditItem13 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemRadioGroup4 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
+            this.barStaticItem7 = new DevExpress.XtraBars.BarStaticItem();
+            this.barEditItem6 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.barStaticItem8 = new DevExpress.XtraBars.BarStaticItem();
+            this.barEditItem8 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemDateEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
@@ -59,6 +67,28 @@
             this.barEdit_mc = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem6 = new DevExpress.XtraBars.BarStaticItem();
+            this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
+            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemRadioGroup1 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
+            this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barEditItem3 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemRadioGroup2 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
+            this.barEditItem4 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemRadioGroup3 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
+            this.barEditItem5 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barEditItem7 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barEditItem9 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barEditItem10 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.barEditItem11 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barEditItem12 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.smsSendTimeBegin = new DevExpress.XtraEditors.DateEdit();
             this.txtSmsContent = new DevExpress.XtraEditors.TextEdit();
@@ -87,10 +117,6 @@
             this.SYSTEMCODE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.PHONENUM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CONTENT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -99,39 +125,29 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.barStaticItem6 = new DevExpress.XtraBars.BarStaticItem();
-            this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
-            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemRadioGroup1 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
-            this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.barEditItem3 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemRadioGroup2 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
-            this.barEditItem4 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemRadioGroup3 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
-            this.barStaticItem7 = new DevExpress.XtraBars.BarStaticItem();
-            this.barEditItem5 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.barEditItem6 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.barStaticItem8 = new DevExpress.XtraBars.BarStaticItem();
-            this.barEditItem7 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.barEditItem8 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemDateEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
-            this.barEditItem9 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.barEditItem10 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.barEditItem11 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.barEditItem12 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.barEditItem13 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemRadioGroup4 = new DevExpress.XtraEditors.Repository.RepositoryItemRadioGroup();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.splashScreenManager3 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SmartKylinApp.View.ComprehensiveDocument.WaitForm1), true, true, typeof(System.Windows.Forms.UserControl));
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.smsSendTimeBegin.Properties.CalendarTimeProperties)).BeginInit();
@@ -160,21 +176,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup4)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -263,17 +264,67 @@
             this.barStaticItem1.Name = "barStaticItem1";
             this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barButtonItem4
+            // barEditItem13
             // 
-            this.barButtonItem4.Caption = "barButtonItem4";
-            this.barButtonItem4.Id = 4;
-            this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
-            this.barButtonItem4.Name = "barButtonItem4";
-            toolTipItem6.Text = "刷新";
-            superToolTip6.Items.Add(toolTipItem6);
-            this.barButtonItem4.SuperTip = superToolTip6;
-            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
+            this.barEditItem13.Caption = "barEditItem13";
+            this.barEditItem13.Edit = this.repositoryItemRadioGroup4;
+            this.barEditItem13.EditValue = "1";
+            this.barEditItem13.Id = 30;
+            this.barEditItem13.Name = "barEditItem13";
+            // 
+            // repositoryItemRadioGroup4
+            // 
+            this.repositoryItemRadioGroup4.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Near;
+            this.repositoryItemRadioGroup4.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "发送成功"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "发送失败")});
+            this.repositoryItemRadioGroup4.Name = "repositoryItemRadioGroup4";
+            // 
+            // barStaticItem7
+            // 
+            this.barStaticItem7.Caption = "发送时间起";
+            this.barStaticItem7.Id = 20;
+            this.barStaticItem7.Name = "barStaticItem7";
+            this.barStaticItem7.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barEditItem6
+            // 
+            this.barEditItem6.Caption = "barEditItem6";
+            this.barEditItem6.Edit = this.repositoryItemDateEdit1;
+            this.barEditItem6.Id = 22;
+            this.barEditItem6.Name = "barEditItem6";
+            // 
+            // repositoryItemDateEdit1
+            // 
+            this.repositoryItemDateEdit1.AutoHeight = false;
+            this.repositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
+            // 
+            // barStaticItem8
+            // 
+            this.barStaticItem8.Caption = "发送时间止";
+            this.barStaticItem8.Id = 23;
+            this.barStaticItem8.Name = "barStaticItem8";
+            this.barStaticItem8.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barEditItem8
+            // 
+            this.barEditItem8.Caption = "barEditItem8";
+            this.barEditItem8.Edit = this.repositoryItemDateEdit2;
+            this.barEditItem8.Id = 25;
+            this.barEditItem8.Name = "barEditItem8";
+            // 
+            // repositoryItemDateEdit2
+            // 
+            this.repositoryItemDateEdit2.AutoHeight = false;
+            this.repositoryItemDateEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit2.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemDateEdit2.Name = "repositoryItemDateEdit2";
             // 
             // barButtonItem5
             // 
@@ -282,6 +333,18 @@
             this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
             this.barButtonItem5.Name = "barButtonItem5";
             this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 4;
+            this.barButtonItem4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.barButtonItem4.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.barButtonItem4.Name = "barButtonItem4";
+            toolTipItem1.Text = "刷新";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.barButtonItem4.SuperTip = superToolTip1;
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
             // barStaticItem5
             // 
@@ -343,9 +406,9 @@
             this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
             this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
             this.barButtonItem1.Name = "barButtonItem1";
-            toolTipItem7.Text = "添加数据";
-            superToolTip7.Items.Add(toolTipItem7);
-            this.barButtonItem1.SuperTip = superToolTip7;
+            toolTipItem2.Text = "添加数据";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.barButtonItem1.SuperTip = superToolTip2;
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // barButtonItem2
@@ -355,9 +418,9 @@
             this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
             this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
             this.barButtonItem2.Name = "barButtonItem2";
-            toolTipItem8.Text = "编辑";
-            superToolTip8.Items.Add(toolTipItem8);
-            this.barButtonItem2.SuperTip = superToolTip8;
+            toolTipItem3.Text = "编辑";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.barButtonItem2.SuperTip = superToolTip3;
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barButtonItem3
@@ -367,9 +430,9 @@
             this.barButtonItem3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
             this.barButtonItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
             this.barButtonItem3.Name = "barButtonItem3";
-            toolTipItem9.Text = "删除";
-            superToolTip9.Items.Add(toolTipItem9);
-            this.barButtonItem3.SuperTip = superToolTip9;
+            toolTipItem4.Text = "删除";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.barButtonItem3.SuperTip = superToolTip4;
             this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
             // barStaticItem2
@@ -385,9 +448,9 @@
             this.barEdit_mc.Edit = this.repositoryItemTextEdit1;
             this.barEdit_mc.Id = 8;
             this.barEdit_mc.Name = "barEdit_mc";
-            toolTipItem10.Text = "监测点";
-            superToolTip10.Items.Add(toolTipItem10);
-            this.barEdit_mc.SuperTip = superToolTip10;
+            toolTipItem5.Text = "监测点";
+            superToolTip5.Items.Add(toolTipItem5);
+            this.barEdit_mc.SuperTip = superToolTip5;
             // 
             // repositoryItemTextEdit1
             // 
@@ -401,6 +464,138 @@
             this.barButtonItem6.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.Image")));
             this.barButtonItem6.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.ImageOptions.LargeImage")));
             this.barButtonItem6.Name = "barButtonItem6";
+            // 
+            // barStaticItem6
+            // 
+            this.barStaticItem6.Caption = "barStaticItem6";
+            this.barStaticItem6.Id = 14;
+            this.barStaticItem6.Name = "barStaticItem6";
+            this.barStaticItem6.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barCheckItem1
+            // 
+            this.barCheckItem1.Caption = "barCheckItem1";
+            this.barCheckItem1.Id = 15;
+            this.barCheckItem1.Name = "barCheckItem1";
+            // 
+            // barEditItem1
+            // 
+            this.barEditItem1.Caption = "barEditItem1";
+            this.barEditItem1.Edit = this.repositoryItemRadioGroup1;
+            this.barEditItem1.Id = 16;
+            this.barEditItem1.Name = "barEditItem1";
+            // 
+            // repositoryItemRadioGroup1
+            // 
+            this.repositoryItemRadioGroup1.Name = "repositoryItemRadioGroup1";
+            // 
+            // barEditItem2
+            // 
+            this.barEditItem2.Caption = "barEditItem2";
+            this.barEditItem2.Edit = this.repositoryItemTextEdit2;
+            this.barEditItem2.Id = 17;
+            this.barEditItem2.Name = "barEditItem2";
+            // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            // 
+            // barEditItem3
+            // 
+            this.barEditItem3.Caption = "barEditItem3";
+            this.barEditItem3.Edit = this.repositoryItemRadioGroup2;
+            this.barEditItem3.Id = 18;
+            this.barEditItem3.Name = "barEditItem3";
+            // 
+            // repositoryItemRadioGroup2
+            // 
+            this.repositoryItemRadioGroup2.Columns = 2;
+            this.repositoryItemRadioGroup2.Name = "repositoryItemRadioGroup2";
+            // 
+            // barEditItem4
+            // 
+            this.barEditItem4.Caption = "barEditItem4";
+            this.barEditItem4.Edit = this.repositoryItemRadioGroup3;
+            this.barEditItem4.Id = 19;
+            this.barEditItem4.Name = "barEditItem4";
+            // 
+            // repositoryItemRadioGroup3
+            // 
+            this.repositoryItemRadioGroup3.Columns = 2;
+            this.repositoryItemRadioGroup3.Name = "repositoryItemRadioGroup3";
+            // 
+            // barEditItem5
+            // 
+            this.barEditItem5.Caption = "barEditItem5";
+            this.barEditItem5.Edit = this.repositoryItemTextEdit3;
+            this.barEditItem5.Id = 21;
+            this.barEditItem5.Name = "barEditItem5";
+            // 
+            // repositoryItemTextEdit3
+            // 
+            this.repositoryItemTextEdit3.AutoHeight = false;
+            this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
+            // 
+            // barEditItem7
+            // 
+            this.barEditItem7.Caption = "barEditItem7";
+            this.barEditItem7.Edit = this.repositoryItemTextEdit4;
+            this.barEditItem7.Id = 24;
+            this.barEditItem7.Name = "barEditItem7";
+            // 
+            // repositoryItemTextEdit4
+            // 
+            this.repositoryItemTextEdit4.AutoHeight = false;
+            this.repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
+            // 
+            // barEditItem9
+            // 
+            this.barEditItem9.Caption = "barEditItem9";
+            this.barEditItem9.Edit = this.repositoryItemTextEdit5;
+            this.barEditItem9.Id = 26;
+            this.barEditItem9.Name = "barEditItem9";
+            // 
+            // repositoryItemTextEdit5
+            // 
+            this.repositoryItemTextEdit5.AutoHeight = false;
+            this.repositoryItemTextEdit5.Name = "repositoryItemTextEdit5";
+            // 
+            // barEditItem10
+            // 
+            this.barEditItem10.Caption = "barEditItem10";
+            this.barEditItem10.Edit = this.repositoryItemCheckEdit1;
+            this.barEditItem10.Id = 27;
+            this.barEditItem10.Name = "barEditItem10";
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            // 
+            // barEditItem11
+            // 
+            this.barEditItem11.Caption = "barEditItem11";
+            this.barEditItem11.Edit = this.repositoryItemTextEdit6;
+            this.barEditItem11.Id = 28;
+            this.barEditItem11.Name = "barEditItem11";
+            // 
+            // repositoryItemTextEdit6
+            // 
+            this.repositoryItemTextEdit6.AutoHeight = false;
+            this.repositoryItemTextEdit6.Name = "repositoryItemTextEdit6";
+            // 
+            // barEditItem12
+            // 
+            this.barEditItem12.Caption = "barEditItem12";
+            this.barEditItem12.Edit = this.repositoryItemTextEdit7;
+            this.barEditItem12.Id = 29;
+            this.barEditItem12.Name = "barEditItem12";
+            // 
+            // repositoryItemTextEdit7
+            // 
+            this.repositoryItemTextEdit7.AutoHeight = false;
+            this.repositoryItemTextEdit7.Name = "repositoryItemTextEdit7";
             // 
             // layoutControl2
             // 
@@ -666,6 +861,7 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.ID,
             this.SYSTEMCODE,
+            this.gridColumn9,
             this.PHONENUM,
             this.CONTENT,
             this.gridColumn1,
@@ -704,7 +900,7 @@
             this.PHONENUM.Name = "PHONENUM";
             this.PHONENUM.OptionsColumn.AllowEdit = false;
             this.PHONENUM.Visible = true;
-            this.PHONENUM.VisibleIndex = 1;
+            this.PHONENUM.VisibleIndex = 2;
             // 
             // CONTENT
             // 
@@ -713,7 +909,79 @@
             this.CONTENT.Name = "CONTENT";
             this.CONTENT.OptionsColumn.ReadOnly = true;
             this.CONTENT.Visible = true;
-            this.CONTENT.VisibleIndex = 2;
+            this.CONTENT.VisibleIndex = 3;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "短信类型";
+            this.gridColumn1.FieldName = "TYPE";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 4;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "发送时间";
+            this.gridColumn2.FieldName = "TIME";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 5;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "发送状态";
+            this.gridColumn3.FieldName = "STATUS";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 6;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "备用字段";
+            this.gridColumn4.FieldName = "EXTENDCODE";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 7;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "备用字段2";
+            this.gridColumn5.FieldName = "EXTENDCODE2";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 8;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "备用字段3";
+            this.gridColumn6.FieldName = "EXTENDCODE3";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 9;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "备用字段4";
+            this.gridColumn7.FieldName = "EXTENDCODE4";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 10;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "备用字段5";
+            this.gridColumn8.FieldName = "EXTENDCODE5";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 11;
             // 
             // layoutControlGroup1
             // 
@@ -749,275 +1017,18 @@
             this.treeListColumn2.FieldName = "ID";
             this.treeListColumn2.Name = "treeListColumn2";
             // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "短信类型";
-            this.gridColumn1.FieldName = "TYPE";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.OptionsColumn.AllowEdit = false;
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 3;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "发送时间";
-            this.gridColumn2.FieldName = "TIME";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.OptionsColumn.AllowEdit = false;
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 4;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "发送状态";
-            this.gridColumn3.FieldName = "STATUS";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.OptionsColumn.AllowEdit = false;
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 5;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "备用字段";
-            this.gridColumn4.FieldName = "EXTENDCODE";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.AllowEdit = false;
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 6;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "备用字段2";
-            this.gridColumn5.FieldName = "EXTENDCODE2";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.OptionsColumn.AllowEdit = false;
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 7;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "备用字段3";
-            this.gridColumn6.FieldName = "EXTENDCODE3";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.OptionsColumn.AllowEdit = false;
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 8;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "备用字段4";
-            this.gridColumn7.FieldName = "EXTENDCODE4";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.OptionsColumn.AllowEdit = false;
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 9;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "备用字段5";
-            this.gridColumn8.FieldName = "EXTENDCODE5";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.OptionsColumn.AllowEdit = false;
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 10;
-            // 
-            // barStaticItem6
-            // 
-            this.barStaticItem6.Caption = "barStaticItem6";
-            this.barStaticItem6.Id = 14;
-            this.barStaticItem6.Name = "barStaticItem6";
-            this.barStaticItem6.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barCheckItem1
-            // 
-            this.barCheckItem1.Caption = "barCheckItem1";
-            this.barCheckItem1.Id = 15;
-            this.barCheckItem1.Name = "barCheckItem1";
-            // 
-            // barEditItem1
-            // 
-            this.barEditItem1.Caption = "barEditItem1";
-            this.barEditItem1.Edit = this.repositoryItemRadioGroup1;
-            this.barEditItem1.Id = 16;
-            this.barEditItem1.Name = "barEditItem1";
-            // 
-            // repositoryItemRadioGroup1
-            // 
-            this.repositoryItemRadioGroup1.Name = "repositoryItemRadioGroup1";
-            // 
-            // barEditItem2
-            // 
-            this.barEditItem2.Caption = "barEditItem2";
-            this.barEditItem2.Edit = this.repositoryItemTextEdit2;
-            this.barEditItem2.Id = 17;
-            this.barEditItem2.Name = "barEditItem2";
-            // 
-            // repositoryItemTextEdit2
-            // 
-            this.repositoryItemTextEdit2.AutoHeight = false;
-            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
-            // 
-            // barEditItem3
-            // 
-            this.barEditItem3.Caption = "barEditItem3";
-            this.barEditItem3.Edit = this.repositoryItemRadioGroup2;
-            this.barEditItem3.Id = 18;
-            this.barEditItem3.Name = "barEditItem3";
-            // 
-            // repositoryItemRadioGroup2
-            // 
-            this.repositoryItemRadioGroup2.Columns = 2;
-            this.repositoryItemRadioGroup2.Name = "repositoryItemRadioGroup2";
-            // 
-            // barEditItem4
-            // 
-            this.barEditItem4.Caption = "barEditItem4";
-            this.barEditItem4.Edit = this.repositoryItemRadioGroup3;
-            this.barEditItem4.Id = 19;
-            this.barEditItem4.Name = "barEditItem4";
-            // 
-            // repositoryItemRadioGroup3
-            // 
-            this.repositoryItemRadioGroup3.Columns = 2;
-            this.repositoryItemRadioGroup3.Name = "repositoryItemRadioGroup3";
-            // 
-            // barStaticItem7
-            // 
-            this.barStaticItem7.Caption = "发送时间起";
-            this.barStaticItem7.Id = 20;
-            this.barStaticItem7.Name = "barStaticItem7";
-            this.barStaticItem7.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barEditItem5
-            // 
-            this.barEditItem5.Caption = "barEditItem5";
-            this.barEditItem5.Edit = this.repositoryItemTextEdit3;
-            this.barEditItem5.Id = 21;
-            this.barEditItem5.Name = "barEditItem5";
-            // 
-            // repositoryItemTextEdit3
-            // 
-            this.repositoryItemTextEdit3.AutoHeight = false;
-            this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
-            // 
-            // barEditItem6
-            // 
-            this.barEditItem6.Caption = "barEditItem6";
-            this.barEditItem6.Edit = this.repositoryItemDateEdit1;
-            this.barEditItem6.Id = 22;
-            this.barEditItem6.Name = "barEditItem6";
-            // 
-            // repositoryItemDateEdit1
-            // 
-            this.repositoryItemDateEdit1.AutoHeight = false;
-            this.repositoryItemDateEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit1.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
-            // 
-            // barStaticItem8
-            // 
-            this.barStaticItem8.Caption = "发送时间止";
-            this.barStaticItem8.Id = 23;
-            this.barStaticItem8.Name = "barStaticItem8";
-            this.barStaticItem8.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barEditItem7
-            // 
-            this.barEditItem7.Caption = "barEditItem7";
-            this.barEditItem7.Edit = this.repositoryItemTextEdit4;
-            this.barEditItem7.Id = 24;
-            this.barEditItem7.Name = "barEditItem7";
-            // 
-            // repositoryItemTextEdit4
-            // 
-            this.repositoryItemTextEdit4.AutoHeight = false;
-            this.repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
-            // 
-            // barEditItem8
-            // 
-            this.barEditItem8.Caption = "barEditItem8";
-            this.barEditItem8.Edit = this.repositoryItemDateEdit2;
-            this.barEditItem8.Id = 25;
-            this.barEditItem8.Name = "barEditItem8";
-            // 
-            // repositoryItemDateEdit2
-            // 
-            this.repositoryItemDateEdit2.AutoHeight = false;
-            this.repositoryItemDateEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit2.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemDateEdit2.Name = "repositoryItemDateEdit2";
-            // 
-            // barEditItem9
-            // 
-            this.barEditItem9.Caption = "barEditItem9";
-            this.barEditItem9.Edit = this.repositoryItemTextEdit5;
-            this.barEditItem9.Id = 26;
-            this.barEditItem9.Name = "barEditItem9";
-            // 
-            // repositoryItemTextEdit5
-            // 
-            this.repositoryItemTextEdit5.AutoHeight = false;
-            this.repositoryItemTextEdit5.Name = "repositoryItemTextEdit5";
-            // 
-            // barEditItem10
-            // 
-            this.barEditItem10.Caption = "barEditItem10";
-            this.barEditItem10.Edit = this.repositoryItemCheckEdit1;
-            this.barEditItem10.Id = 27;
-            this.barEditItem10.Name = "barEditItem10";
-            // 
-            // repositoryItemCheckEdit1
-            // 
-            this.repositoryItemCheckEdit1.AutoHeight = false;
-            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
-            // 
-            // barEditItem11
-            // 
-            this.barEditItem11.Caption = "barEditItem11";
-            this.barEditItem11.Edit = this.repositoryItemTextEdit6;
-            this.barEditItem11.Id = 28;
-            this.barEditItem11.Name = "barEditItem11";
-            // 
-            // repositoryItemTextEdit6
-            // 
-            this.repositoryItemTextEdit6.AutoHeight = false;
-            this.repositoryItemTextEdit6.Name = "repositoryItemTextEdit6";
-            // 
-            // barEditItem12
-            // 
-            this.barEditItem12.Caption = "barEditItem12";
-            this.barEditItem12.Edit = this.repositoryItemTextEdit7;
-            this.barEditItem12.Id = 29;
-            this.barEditItem12.Name = "barEditItem12";
-            // 
-            // repositoryItemTextEdit7
-            // 
-            this.repositoryItemTextEdit7.AutoHeight = false;
-            this.repositoryItemTextEdit7.Name = "repositoryItemTextEdit7";
-            // 
-            // barEditItem13
-            // 
-            this.barEditItem13.Caption = "barEditItem13";
-            this.barEditItem13.Edit = this.repositoryItemRadioGroup4;
-            this.barEditItem13.EditValue = "1";
-            this.barEditItem13.Id = 30;
-            this.barEditItem13.Name = "barEditItem13";
-            // 
-            // repositoryItemRadioGroup4
-            // 
-            this.repositoryItemRadioGroup4.ItemHorzAlignment = DevExpress.XtraEditors.RadioItemHorzAlignment.Near;
-            this.repositoryItemRadioGroup4.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("1", "发送成功"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("0", "发送失败")});
-            this.repositoryItemRadioGroup4.Name = "repositoryItemRadioGroup4";
-            // 
             // splashScreenManager3
             // 
             this.splashScreenManager3.ClosingDelay = 500;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "收件人";
+            this.gridColumn9.FieldName = "NAME";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.ReadOnly = true;
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 1;
             // 
             // SmsRecordSearch
             // 
@@ -1033,7 +1044,22 @@
             this.Size = new System.Drawing.Size(1095, 551);
             this.Load += new System.EventHandler(this.TemplateManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.smsSendTimeBegin.Properties.CalendarTimeProperties)).EndInit();
@@ -1062,21 +1088,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRadioGroup4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1176,5 +1187,6 @@
         private DevExpress.XtraBars.BarEditItem barEditItem12;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit7;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
     }
 }

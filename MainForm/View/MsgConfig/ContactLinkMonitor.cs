@@ -13,6 +13,7 @@ using SmartKylinData.IOTModel;
 using SmartKylinApp.Common;
 using ServiceStack;
 using log4net;
+using DevExpress.XtraTreeList.Nodes;
 
 namespace SmartKylinApp.View.MsgConfig
 {
@@ -20,6 +21,8 @@ namespace SmartKylinApp.View.MsgConfig
     {
         private List<WorkerLinkMonitor> list;
         private ILog _log = LogManager.GetLogger("ContactLinkMonitor");
+        private int Id;
+
         public ContactLinkMonitor()
         {
             InitializeComponent();
@@ -28,13 +31,15 @@ namespace SmartKylinApp.View.MsgConfig
             bar2.Manager.AllowShowToolbarsPopup = false;
             bar2.OptionsBar.AllowQuickCustomization = false;
             gridView1.OptionsMenu.EnableColumnMenu = false;
+            treeList1.OptionsMenu.EnableColumnMenu = false;
         }
         private void ContactLinkMonitor_Load(object sender, EventArgs e)
         {
             splashScreenManager1.ShowWaitForm();
             splashScreenManager1.SetWaitFormCaption("请稍后,数据加载中....");     // 标题
             //splashScreenManager1.SetWaitFormDescription("正在更新.....");　　　　　// 信息
-            GetData();
+            BindTree();
+           // GetData();
             splashScreenManager1.CloseWaitForm();
         }
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -106,6 +111,64 @@ namespace SmartKylinApp.View.MsgConfig
             var listwhere = list.Where(a => a.BaseMonitor.BMMC.Contains(sbbm)).ToList();
             gridControl1.DataSource = listwhere;
             barStaticItem3.Caption = listwhere.Count.ToString();
+        }
+        private void BindTree()
+        {
+            try
+            {
+                var datas = GlobalHandler.contactgroupresp.GetAllList();
+                treeList1.DataSource = datas;
+                treeList1.ExpandAll();
+            }
+            catch (Exception e)
+            {
+                XtraMessageBox.Show("获取数据出错");
+                _log.Error("获取数据出错，出错提示：" + e.ToString());
+            }
+        }
+        private void treeList1_FocusedNodeChanged(object sender, DevExpress.XtraTreeList.FocusedNodeChangedEventArgs e)
+        {
+            try
+            {
+                Id = int.Parse(treeList1.FocusedNode.GetValue("Id").ToString());
+                if (!string.IsNullOrEmpty(Id.ToString()))
+                {
+                    var aList = GlobalHandler.contactresp.GetAllList(a => a.CONTACTSGROUP.Id == Id).ToList();
+                    gridControl1.DataSource = aList;
+                    list = GlobalHandler.wlinkmresp.GetAllList(a => a.Contact.CONTACTSGROUP.Id == Id);
+                    gridControl1.DataSource = list;
+                    barStaticItem3.Caption = list.Count.ToString();
+
+                }
+                else
+                {
+                    gridControl1.DataSource = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("获取数据出错");
+                _log.Error("获取数据出错，出错提示：" + ex.ToString());
+            }
+        }
+
+        private void treeList1_GetSelectImage(object sender, DevExpress.XtraTreeList.GetSelectImageEventArgs e)
+        {
+            //树图片
+            if (e.Node == null) return;
+            TreeListNode node = e.Node;
+
+            if (node.GetValue("PARENTID") == null) return;
+            int FID = (int)node.GetValue("PARENTID");
+            if (FID == -1 || FID == 0)
+            {
+                e.NodeImageIndex = 1;
+            }
+            else
+            {
+                e.NodeImageIndex = 0;
+
+            }
         }
     }
 }
