@@ -153,8 +153,8 @@ namespace SmartKylinApp.View.BaseConfig
             }
             catch (Exception e)
             {
-                XtraMessageBox.Show("获取检测项类型数据出错");
-                _log.Error("获取检测项类型数据出错，出错提示：" + e.ToString());
+                XtraMessageBox.Show("获取监测项类型数据出错");
+                _log.Error("获取监测项类型数据出错，出错提示：" + e.ToString());
             }
         }
 

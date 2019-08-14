@@ -26,8 +26,8 @@ namespace SmartKylinData.IOTModel
             Map(x => x.ISENABLED);
             Map(x => x.LASTVALUE);
             //Map(x => x.CONFIGCODE);
-            References<BasicMonitorRecord>(o => o.Monitor).Not.LazyLoad().Column("monitorid");
-            References<ConfigRecord>(o => o.ConfigItem).Not.LazyLoad().Column("configcode");
+            References<BasicMonitorRecord>(o => o.Monitor).Not.LazyLoad().Column("monitor_id");
+            References<ConfigRecord>(o => o.ConfigItem).Not.LazyLoad().Column("configid");
         }
     }
     public class SmsConfigs : Entity<int>

@@ -21,8 +21,9 @@ namespace SmartKylinApp.View.MsgConfig
     { 
         private bool isEdit;
         BasicMonitorRecord bmmodel = new BasicMonitorRecord();
-        public ConfigRecord crModel;
+        public ConfigRecord crModel = new ConfigRecord();
         private List<SmsConfigs> list;
+        private string  mo;
         private ILog _log = LogManager.GetLogger("TemplateManager");
         public TemplateManager()
         {
@@ -190,7 +191,6 @@ namespace SmartKylinApp.View.MsgConfig
                     model.LASTVALUE = decimal.Parse(txt_LASTVALUE.Text == "" ? "0" : txt_LASTVALUE.Text);
                     model.ISENABLED = rdo_ISENABLED.EditValue.ToString();
                     model.EXTENDCODE = textEdit2.Text;
-                    //model.CONFIGCODE = bet_stationtype.Tag.ToString();
                     model.ConfigItem = crModel;
                     if (bet_stationtype.Text == "")
                     {

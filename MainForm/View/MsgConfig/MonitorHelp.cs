@@ -290,17 +290,24 @@ namespace SmartKylinApp.View.BaseConfig
         {
             if (gridView1.GetSelectedRows().Length > 0)
             {
-                //监测点
-                var Id = int.Parse(gridView1.GetRowCellValue(gridView1.GetSelectedRows()[0], "Id").ToString());
-                model = GlobalHandler.monitorresp.Get(Id);
-                //检测项
-                Id = int.Parse(gridView2.GetRowCellValue(gridView2.GetSelectedRows()[0], "Id").ToString());
-                crModel = GlobalHandler.configresp.Get(Id);
-                this.Close();
+                if (gridView2.GetSelectedRows().Length > 0)
+                {
+                    //监测点
+                    var Id = int.Parse(gridView1.GetRowCellValue(gridView1.GetSelectedRows()[0], "Id").ToString());
+                    model = GlobalHandler.monitorresp.Get(Id);
+                    //检测项
+                    Id = int.Parse(gridView2.GetRowCellValue(gridView2.GetSelectedRows()[0], "Id").ToString());
+                    crModel = GlobalHandler.configresp.Get(Id);
+                    this.Close();
+                }
+                else
+                {
+                    XtraMessageBox.Show("请选择数据项数据！");
+                }
             }
             else
             {
-                XtraMessageBox.Show("请先选择数据！");
+                XtraMessageBox.Show("请选择监测点数据！");
             }
         }
 

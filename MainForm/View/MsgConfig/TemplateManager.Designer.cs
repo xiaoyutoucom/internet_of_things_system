@@ -592,7 +592,7 @@
             this.layoutControlItem64.Location = new System.Drawing.Point(126, 123);
             this.layoutControlItem64.Name = "layoutControlItem64";
             this.layoutControlItem64.Size = new System.Drawing.Size(126, 46);
-            this.layoutControlItem64.Text = "关联检测项(*)";
+            this.layoutControlItem64.Text = "关联监测项(*)";
             this.layoutControlItem64.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem64.TextSize = new System.Drawing.Size(96, 14);
             this.layoutControlItem64.Click += new System.EventHandler(this.layoutControlItem64_Click);
@@ -639,7 +639,7 @@
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "关联检测项";
+            this.gridColumn8.Caption = "关联监测项";
             this.gridColumn8.FieldName = "ConfigItem.CONFIG_DESC";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;

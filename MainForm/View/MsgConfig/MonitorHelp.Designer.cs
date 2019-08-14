@@ -354,14 +354,14 @@
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "检测项编号";
+            this.gridColumn6.Caption = "监测项编号";
             this.gridColumn6.FieldName = "CONFIG_CODE";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "检测项名称";
+            this.gridColumn7.Caption = "监测项名称";
             this.gridColumn7.FieldName = "CONFIG_DESC";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
