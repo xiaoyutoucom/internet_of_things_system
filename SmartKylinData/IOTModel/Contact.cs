@@ -35,14 +35,21 @@ namespace SmartKylinData.IOTModel
     {
         public virtual string NAME { get; set; }
         public virtual ContactsGroup CONTACTSGROUP { get; set; }
+        //性别
         public virtual string GENDER { get; set; }
+        //生日
         public virtual DateTime BIRTHDAY { get; set; }
+        //专业
         public virtual string MAJOB { get; set; }
         public virtual string PHONE { get; set; }
+        //
         public virtual string DEPARTMENT { get; set; }
         public virtual string ADDRESS { get; set; }
+        //职位
         public virtual string JOB { get; set; }
+        //职责
         public virtual string DUTY { get; set; }
+        //责任路段
         public virtual string SECTION { get; set; }
         public virtual string EXTENDCODE { get; set; }
     }
